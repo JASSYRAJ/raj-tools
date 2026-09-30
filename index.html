@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Raj Tools Pro 🚀</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 font-family:Arial,sans-serif;
 background:#080c12;
 color:#fff;
-min-height:100vh;
 padding-bottom:80px;
 transition:.3s;
 }
@@ -35,25 +23,16 @@ background:#f3f6fa;
 color:#111;
 }
 
-
-/* HEADER */
-
 header{
-background:rgba(12,17,25,.95);
-padding:18px 20px;
+background:#111821;
+padding:17px 20px;
 position:sticky;
 top:0;
 z-index:50;
-backdrop-filter:blur(10px);
-border-bottom:1px solid #222;
+border-bottom:1px solid #26313d;
 }
 
-body.light header{
-background:rgba(255,255,255,.95);
-border-color:#ddd;
-}
-
-.header-inner{
+.header{
 max-width:1100px;
 margin:auto;
 display:flex;
@@ -62,61 +41,29 @@ justify-content:space-between;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:23px;
+font-size:22px;
 font-weight:bold;
 color:#00e5ff;
 }
 
-.logo-icon{
-width:42px;
-height:42px;
-border-radius:13px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#00e5ff,#006eff);
-color:#001014;
-font-size:22px;
-box-shadow:0 0 20px #00e5ff55;
-}
-
-.theme-btn{
-background:#1b2430;
+.theme{
+background:#222d38;
 color:white;
-border:1px solid #333;
-border-radius:10px;
+border:0;
 padding:10px 13px;
-cursor:pointer;
+border-radius:10px;
 }
-
-
-/* HERO */
 
 .hero{
-max-width:1100px;
-margin:auto;
-padding:65px 20px 40px;
 text-align:center;
-}
-
-.badge{
-display:inline-block;
-padding:8px 14px;
-border-radius:30px;
-background:#00e5ff15;
-border:1px solid #00e5ff44;
-color:#00e5ff;
-font-size:13px;
-margin-bottom:18px;
+max-width:1000px;
+margin:auto;
+padding:55px 20px 35px;
 }
 
 .hero h1{
-font-size:clamp(38px,8vw,70px);
-line-height:1.05;
-margin-bottom:18px;
+font-size:clamp(38px,8vw,65px);
+margin-bottom:15px;
 }
 
 .gradient{
@@ -126,124 +73,41 @@ color:transparent;
 }
 
 .hero p{
-max-width:650px;
-margin:auto;
-color:#9aa4b2;
-font-size:18px;
+color:#909aaa;
+font-size:17px;
 line-height:1.6;
 }
 
-.hero-buttons{
-margin-top:28px;
-}
-
-.primary{
-background:#00e5ff;
-color:#001014;
-padding:14px 24px;
-border:0;
-border-radius:12px;
-font-weight:bold;
-font-size:16px;
-cursor:pointer;
-margin:5px;
-}
-
-.secondary{
-background:#18212c;
-color:#fff;
-padding:14px 24px;
-border:1px solid #34404d;
-border-radius:12px;
-font-weight:bold;
-font-size:16px;
-cursor:pointer;
-margin:5px;
-}
-
-
-/* DASHBOARD */
-
-.dashboard{
-max-width:1050px;
-margin:0 auto 35px;
-padding:0 20px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.stat{
-background:#111821;
-border:1px solid #202b38;
-border-radius:17px;
-padding:20px;
-text-align:center;
-}
-
-body.light .stat{
-background:#fff;
-border-color:#ddd;
-}
-
-.stat-icon{
-font-size:25px;
-}
-
-.stat-number{
-font-size:28px;
-font-weight:bold;
-color:#00e5ff;
-margin:7px;
-}
-
-.stat-label{
-color:#8994a3;
-}
-
-
-/* SEARCH */
-
-.search-area{
-max-width:1050px;
-margin:auto;
-padding:0 20px 25px;
-}
-
 .search{
-width:100%;
-padding:16px 18px;
+display:block;
+width:min(900px,calc(100% - 40px));
+margin:10px auto 30px;
+padding:16px;
 border-radius:13px;
-border:1px solid #303b48;
+border:1px solid #35414e;
 background:#111821;
 color:white;
 font-size:16px;
-outline:none;
 }
 
 body.light .search{
 background:white;
 color:#111;
-border-color:#ccc;
 }
 
-
-/* TOOLS */
-
 .section{
-max-width:1050px;
+max-width:1100px;
 margin:auto;
 padding:20px;
 }
 
-.section-title{
-font-size:30px;
+.section h2{
 margin-bottom:8px;
 }
 
-.section-subtitle{
+.sub{
 color:#8994a3;
-margin-bottom:25px;
+margin-bottom:22px;
 }
 
 .tools{
@@ -254,150 +118,138 @@ gap:18px;
 
 .card{
 background:#111821;
-border:1px solid #202b38;
-border-radius:20px;
-padding:23px;
-transition:.25s;
+border:1px solid #222e3b;
+border-radius:19px;
+padding:22px;
+transition:.2s;
 }
 
 body.light .card{
-background:#fff;
+background:white;
 border-color:#ddd;
 }
 
 .card:hover{
-transform:translateY(-5px);
-border-color:#00e5ff77;
-box-shadow:0 10px 35px #0005;
+transform:translateY(-4px);
+box-shadow:0 10px 30px #0005;
 }
 
-.card-icon{
-font-size:34px;
-margin-bottom:15px;
+.icon{
+font-size:35px;
+margin-bottom:12px;
 }
 
 .card h3{
-font-size:20px;
-margin-bottom:9px;
+margin-bottom:8px;
 }
 
 .card p{
 color:#8994a3;
 line-height:1.5;
-margin-bottom:17px;
+margin-bottom:14px;
 }
 
-.card input,
-.card textarea{
+input,select,textarea{
 width:100%;
 padding:12px;
 margin:5px 0;
-border-radius:10px;
-border:1px solid #394552;
+border-radius:9px;
+border:1px solid #3a4653;
 background:#080c12;
 color:white;
 font-size:15px;
-outline:none;
 }
 
-body.light .card input,
-body.light .card textarea{
+body.light input,
+body.light select,
+body.light textarea{
 background:#f5f6f8;
 color:#111;
 border-color:#ccc;
 }
 
-.card textarea{
+textarea{
 min-height:100px;
 resize:vertical;
 }
 
-.tool-btn{
+button{
+cursor:pointer;
+}
+
+.btn{
 background:#00e5ff;
 color:#001014;
 border:0;
 padding:11px 16px;
 border-radius:9px;
 font-weight:bold;
-cursor:pointer;
 margin:4px 2px;
 }
 
-.tool-btn.alt{
+.alt{
 background:#27313d;
 color:white;
 }
 
 .result{
-margin-top:13px;
+margin-top:12px;
 padding:10px;
+background:#00e5ff12;
 border-radius:9px;
-background:#00e5ff10;
 color:#00e5ff;
 font-weight:bold;
 min-height:20px;
 word-break:break-word;
 }
 
-
-/* ABOUT */
-
-.about{
-max-width:1050px;
-margin:40px auto;
-padding:20px;
+.stats{
+max-width:1000px;
+margin:auto;
+padding:0 20px 25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
 }
 
-.about-box{
-background:linear-gradient(135deg,#101923,#111821);
-border:1px solid #263444;
-border-radius:22px;
-padding:35px;
+.stat{
+background:#111821;
+border:1px solid #222e3b;
+padding:18px;
+border-radius:15px;
 text-align:center;
 }
 
-body.light .about-box{
-background:#fff;
+body.light .stat{
+background:white;
 border-color:#ddd;
 }
 
-.about-box h2{
-font-size:30px;
-margin-bottom:15px;
+.stat b{
+display:block;
+font-size:27px;
+color:#00e5ff;
+margin-bottom:5px;
 }
 
-.about-box p{
-color:#8994a3;
-line-height:1.7;
-max-width:700px;
-margin:auto;
+.about{
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+text-align:center;
 }
 
-
-/* TOAST */
-
-#toast{
-position:fixed;
-bottom:90px;
-left:50%;
-transform:translateX(-50%) translateY(100px);
-background:#00e5ff;
-color:#001014;
-padding:13px 20px;
-border-radius:12px;
-font-weight:bold;
-z-index:100;
-opacity:0;
-transition:.3s;
+.about-box{
+background:#111821;
+padding:30px;
+border-radius:20px;
+border:1px solid #26313d;
 }
 
-#toast.show{
-transform:translateX(-50%) translateY(0);
-opacity:1;
+body.light .about-box{
+background:white;
+border-color:#ddd;
 }
-
-
-/* BOTTOM NAV */
 
 .bottom{
 position:fixed;
@@ -408,8 +260,7 @@ height:70px;
 background:#111821;
 border-top:1px solid #26313d;
 display:flex;
-justify-content:center;
-gap:35px;
+justify-content:space-around;
 align-items:center;
 z-index:60;
 }
@@ -420,206 +271,112 @@ border-color:#ddd;
 }
 
 .bottom button{
-background:none;
+background:transparent;
 border:0;
-color:#8994a3;
-cursor:pointer;
-font-size:12px;
+color:#aaa;
+font-size:11px;
 }
 
-.bottom button.active{
-color:#00e5ff;
-}
-
-.bottom-icon{
-font-size:22px;
+.bottom span{
 display:block;
+font-size:21px;
 margin-bottom:3px;
 }
 
-
-/* HIDDEN */
+.bottom button:hover{
+color:#00e5ff;
+}
 
 .hidden{
 display:none!important;
 }
 
-
-/* MOBILE */
-
-@media(max-width:650px){
-
-.header-inner{
-gap:10px;
+#toast{
+position:fixed;
+bottom:85px;
+left:50%;
+transform:translate(-50%,100px);
+background:#00e5ff;
+color:#001014;
+padding:13px 20px;
+border-radius:10px;
+font-weight:bold;
+opacity:0;
+transition:.3s;
+z-index:100;
 }
 
-.logo{
-font-size:18px;
+#toast.show{
+transform:translate(-50%,0);
+opacity:1;
 }
 
-.logo-icon{
-width:36px;
-height:36px;
-}
-
-.dashboard{
+@media(max-width:600px){
+.stats{
 grid-template-columns:1fr;
 }
-
 .hero{
-padding-top:45px;
+padding-top:40px;
 }
-
-.bottom{
-gap:5px;
-justify-content:space-around;
 }
-
-.bottom button{
-font-size:11px;
-}
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-<div class="header-inner">
-
-<div class="logo">
-
-<div class="logo-icon">🚀</div>
-
-Raj Tools Pro
-
+<div class="header">
+<div class="logo">🚀 Raj Tools Pro</div>
+<button class="theme" onclick="theme()">🌙</button>
 </div>
-
-<button class="theme-btn"
-onclick="toggleTheme()">
-🌙
-</button>
-
-</div>
-
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
-<div class="badge">
-⚡ Fast • Simple • Free
-</div>
-
 <h1>
-Welcome to
-<span class="gradient">
-Raj Tools
-</span>
+Welcome to <span class="gradient">Raj Tools</span>
 </h1>
 
 <p>
-A collection of useful browser tools
-made for everyday work, study and fun.
+Your simple collection of useful online tools.
 </p>
 
-<div class="hero-buttons">
-
-<button class="primary"
-onclick="scrollToTools()">
-🚀 Explore Tools
-</button>
-
-<button class="secondary"
-onclick="showAbout()">
-ℹ️ About
-</button>
-
-</div>
-
 </section>
 
 
-<!-- DASHBOARD -->
-
-<section class="dashboard">
+<div class="stats">
 
 <div class="stat">
-
-<div class="stat-icon">🛠️</div>
-
-<div class="stat-number">7+</div>
-
-<div class="stat-label">
-Useful Tools
+<b>10+</b>
+Tools
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<div class="stat-icon">⚡</div>
-
-<div class="stat-number">100%</div>
-
-<div class="stat-label">
-Browser Based
+<b>100%</b>
+Browser
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<div class="stat-icon">📱</div>
-
-<div class="stat-number">24/7</div>
-
-<div class="stat-label">
-Available
+<b>FREE</b>
+Access
 </div>
 
 </div>
 
-</section>
-
-
-<!-- SEARCH -->
-
-<div class="search-area">
 
 <input
 id="search"
 class="search"
-placeholder="🔍 Search a tool..."
+placeholder="🔍 Search tools..."
 oninput="searchTools()"
 >
 
-</div>
 
+<section class="section">
 
-<!-- TOOLS -->
-
-<section class="section"
-id="tools">
-
-<h2 class="section-title">
-🛠️ All Tools
-</h2>
-
-<p class="section-subtitle">
-Choose a tool and start using it.
-</p>
+<h2>🛠️ All Tools</h2>
+<p class="sub">Choose any tool below.</p>
 
 
 <div class="tools">
@@ -629,50 +386,112 @@ Choose a tool and start using it.
 
 <div class="card tool">
 
-<div class="card-icon">🧮</div>
+<div class="icon">🧮</div>
 
 <h3>Calculator</h3>
 
-<p>
-Perform basic mathematical calculations.
-</p>
+<p>Basic mathematical calculations.</p>
 
-<input
-id="num1"
-type="number"
-placeholder="First number"
->
+<input id="a" type="number" placeholder="First number">
 
-<input
-id="num2"
-type="number"
-placeholder="Second number"
->
+<input id="b" type="number" placeholder="Second number">
 
-<button class="tool-btn"
-onclick="calculate('+')">
-+
-</button>
+<button class="btn" onclick="calc('+')">+</button>
+<button class="btn" onclick="calc('-')">−</button>
+<button class="btn" onclick="calc('*')">×</button>
+<button class="btn" onclick="calc('/')">÷</button>
 
-<button class="tool-btn"
-onclick="calculate('-')">
-−
-</button>
+<div id="calcResult" class="result">Result: —</div>
 
-<button class="tool-btn"
-onclick="calculate('*')">
-×
-</button>
-
-<button class="tool-btn"
-onclick="calculate('/')">
-÷
-</button>
-
-<div id="calcResult"
-class="result">
-Result: —
 </div>
+
+
+<!-- PERCENTAGE -->
+
+<div class="card tool">
+
+<div class="icon">📊</div>
+
+<h3>Percentage</h3>
+
+<p>Calculate percentage quickly.</p>
+
+<input id="percentValue"
+type="number"
+placeholder="Value">
+
+<input id="percentTotal"
+type="number"
+placeholder="Total">
+
+<button class="btn" onclick="percentage()">
+Calculate
+</button>
+
+<div id="percentResult" class="result">—</div>
+
+</div>
+
+
+<!-- UNIT CONVERTER -->
+
+<div class="card tool">
+
+<div class="icon">🔄</div>
+
+<h3>Unit Converter</h3>
+
+<p>Convert common units.</p>
+
+<input id="unitValue"
+type="number"
+placeholder="Enter value">
+
+<select id="unitType">
+<option value="km">Kilometer → Meter</option>
+<option value="m">Meter → Kilometer</option>
+<option value="kg">Kilogram → Gram</option>
+<option value="g">Gram → Kilogram</option>
+<option value="cm">Centimeter → Meter</option>
+<option value="mcm">Meter → Centimeter</option>
+</select>
+
+<button class="btn" onclick="convertUnit()">
+Convert
+</button>
+
+<div id="unitResult" class="result">—</div>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="card tool">
+
+<div class="icon">🔐</div>
+
+<h3>Password Generator</h3>
+
+<p>Generate a random password.</p>
+
+<input
+id="passLength"
+type="number"
+value="12"
+min="4"
+max="50"
+placeholder="Length">
+
+<button class="btn" onclick="generatePassword()">
+Generate
+</button>
+
+<button class="btn alt" onclick="copyPassword()">
+📋 Copy
+</button>
+
+<div id="passwordResult" class="result">—</div>
 
 </div>
 
@@ -681,29 +500,20 @@ Result: —
 
 <div class="card tool">
 
-<div class="card-icon">⏱️</div>
+<div class="icon">⏱️</div>
 
 <h3>Time Calculator</h3>
 
-<p>
-Calculate the difference between two times.
-</p>
+<p>Find the difference between times.</p>
 
-<input id="start"
-type="time">
+<input id="start" type="time">
+<input id="end" type="time">
 
-<input id="end"
-type="time">
-
-<button class="tool-btn"
-onclick="timeCalculate()">
+<button class="btn" onclick="timeCalc()">
 Calculate
 </button>
 
-<div id="timeResult"
-class="result">
-—
-</div>
+<div id="timeResult" class="result">—</div>
 
 </div>
 
@@ -712,33 +522,17 @@ class="result">
 
 <div class="card tool">
 
-<div class="card-icon">🔢</div>
+<div class="icon">🔢</div>
 
 <h3>Counter</h3>
 
-<p>
-Simple counter with save support.
-</p>
+<p>Simple counter.</p>
 
-<div id="counter"
-class="result">
-0
-</div>
+<div id="counter" class="result">0</div>
 
-<button class="tool-btn"
-onclick="changeCounter(1)">
-+1
-</button>
-
-<button class="tool-btn"
-onclick="changeCounter(-1)">
-−1
-</button>
-
-<button class="tool-btn alt"
-onclick="resetCounter()">
-Reset
-</button>
+<button class="btn" onclick="changeCounter(1)">+1</button>
+<button class="btn" onclick="changeCounter(-1)">−1</button>
+<button class="btn alt" onclick="resetCounter()">Reset</button>
 
 </div>
 
@@ -747,31 +541,21 @@ Reset
 
 <div class="card tool">
 
-<div class="card-icon">🎲</div>
+<div class="icon">🎲</div>
 
 <h3>Random Number</h3>
 
-<p>
-Generate a random number in your range.
-</p>
+<p>Generate a number between two values.</p>
 
-<input id="min"
-type="number"
-placeholder="Minimum">
+<input id="min" type="number" placeholder="Minimum">
 
-<input id="max"
-type="number"
-placeholder="Maximum">
+<input id="max" type="number" placeholder="Maximum">
 
-<button class="tool-btn"
-onclick="randomNumber()">
+<button class="btn" onclick="randomNumber()">
 Generate
 </button>
 
-<div id="randomResult"
-class="result">
-—
-</div>
+<div id="randomResult" class="result">—</div>
 
 </div>
 
@@ -780,56 +564,45 @@ class="result">
 
 <div class="card tool">
 
-<div class="card-icon">📝</div>
+<div class="icon">📝</div>
 
 <h3>Text Tool</h3>
 
-<p>
-Write and quickly copy your text.
-</p>
+<p>Write and copy text.</p>
 
-<textarea
-id="text"
-placeholder="Write something..."
-></textarea>
+<textarea id="text"
+placeholder="Write something..."></textarea>
 
-<button class="tool-btn"
-onclick="copyText()">
+<button class="btn" onclick="copyText()">
 📋 Copy
 </button>
 
-<button class="tool-btn alt"
-onclick="clearText()">
+<button class="btn alt" onclick="clearText()">
 Clear
 </button>
 
-<div id="textResult"
-class="result">
-</div>
+<div id="textResult" class="result"></div>
 
 </div>
 
 
-<!-- WORD COUNTER -->
+<!-- WORD -->
 
 <div class="card tool">
 
-<div class="card-icon">🔤</div>
+<div class="icon">🔤</div>
 
 <h3>Word Counter</h3>
 
-<p>
-Count words and characters instantly.
-</p>
+<p>Count words and characters.</p>
 
 <textarea
 id="wordText"
 placeholder="Type your text..."
-oninput="wordCount()"
-></textarea>
+oninput="wordCount()">
+</textarea>
 
-<div id="wordResult"
-class="result">
+<div id="wordResult" class="result">
 Words: 0 | Characters: 0
 </div>
 
@@ -840,209 +613,243 @@ Words: 0 | Characters: 0
 
 <div class="card tool">
 
-<div class="card-icon">🔔</div>
+<div class="icon">🔔</div>
 
-<h3>Quick Message</h3>
+<h3>Notification</h3>
 
-<p>
-Test your website notification system.
-</p>
+<p>Test Raj Tools notification.</p>
 
-<button class="tool-btn"
-onclick="showToast('Welcome to Raj Tools! 🚀')">
-Test Notification
+<button class="btn"
+onclick="toast('Welcome to Raj Tools! 🚀')">
+Test
 </button>
 
 </div>
 
 
 </div>
-
 </section>
 
 
-<!-- ABOUT -->
-
-<section class="about"
-id="about">
+<section class="about">
 
 <div class="about-box">
 
 <h2>👨‍💻 About Raj Tools</h2>
 
+<br>
+
 <p>
 Raj Tools Pro is a browser-based toolbox
-built with HTML, CSS and JavaScript.
-The goal is to keep useful everyday tools
-simple, fast and easy to access.
+built using HTML, CSS and JavaScript.
 </p>
 
 <br>
 
-<button class="primary"
-onclick="scrollToTools()">
-🛠️ Use Tools
-</button>
+<p>
+Fast • Simple • Mobile Friendly
+</p>
 
 </div>
 
 </section>
 
-
-<!-- TOAST -->
 
 <div id="toast">
 Done!
 </div>
 
 
-<!-- BOTTOM NAV -->
+<div class="bottom">
 
-<nav class="bottom">
-
-<button class="active"
-onclick="goHome(this)">
-<span class="bottom-icon">🏠</span>
+<button onclick="topPage()">
+<span>🏠</span>
 Home
 </button>
 
-<button onclick="scrollToTools(this)">
-<span class="bottom-icon">🛠️</span>
+<button onclick="toolsTop()">
+<span>🛠️</span>
 Tools
 </button>
 
-<button onclick="showAbout(this)">
-<span class="bottom-icon">👨‍💻</span>
+<button onclick="aboutTop()">
+<span>👨‍💻</span>
 About
 </button>
 
-<button onclick="toggleTheme()">
-<span class="bottom-icon">🌙</span>
+<button onclick="theme()">
+<span>🌙</span>
 Theme
 </button>
 
-</nav>
+</div>
 
 
 <script>
 
-
 /* THEME */
 
-function toggleTheme(){
+function theme(){
 
 document.body.classList.toggle("light");
 
 let light=
 document.body.classList.contains("light");
 
-localStorage.setItem(
-"rajTheme",
-light
-);
+localStorage.setItem("rajLight",light);
 
-showToast(
+toast(
 light
-? "Light mode enabled ☀️"
-: "Dark mode enabled 🌙"
+?"Light mode enabled ☀️"
+:"Dark mode enabled 🌙"
 );
 
 }
 
-
-/* LOAD THEME */
-
-if(
-localStorage.getItem("rajTheme")
-==="true"
-){
-
+if(localStorage.getItem("rajLight")==="true"){
 document.body.classList.add("light");
-
-}
-
-
-/* SCROLL TO TOOLS */
-
-function scrollToTools(){
-
-document.getElementById("tools")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* ABOUT */
-
-function showAbout(){
-
-document.getElementById("about")
-.scrollIntoView({
-behavior:"smooth"
-});
-
 }
 
 
 /* CALCULATOR */
 
-function calculate(op){
+function calc(op){
 
-let a=
-Number(
-document.getElementById("num1").value
-);
+let a=Number(document.getElementById("a").value);
+let b=Number(document.getElementById("b").value);
 
-let b=
-Number(
-document.getElementById("num2").value
-);
+if(op==="+")
+result=a+b;
 
-if(
-document.getElementById("num1").value==="" ||
-document.getElementById("num2").value===""
-){
+if(op==="-")
+result=a-b;
 
-showToast("Enter both numbers");
+if(op==="*")
+result=a*b;
+
+if(op==="/")
+result=b===0?"Cannot divide by zero":a/b;
+
+document.getElementById("calcResult")
+.innerText="Result: "+result;
+
+}
+
+
+/* PERCENTAGE */
+
+function percentage(){
+
+let value=
+Number(document.getElementById("percentValue").value);
+
+let total=
+Number(document.getElementById("percentTotal").value);
+
+if(total===0){
+
+document.getElementById("percentResult")
+.innerText="Total cannot be zero";
 
 return;
 
 }
 
+let result=(value/total)*100;
+
+document.getElementById("percentResult")
+.innerText=result.toFixed(2)+"%";
+
+}
+
+
+/* UNIT */
+
+function convertUnit(){
+
+let value=
+Number(document.getElementById("unitValue").value);
+
+let type=
+document.getElementById("unitType").value;
+
 let result;
 
-if(op==="+") result=a+b;
+if(type==="km")
+result=value*1000+" m";
 
-if(op==="-") result=a-b;
+if(type==="m")
+result=value/1000+" km";
 
-if(op==="*") result=a*b;
+if(type==="kg")
+result=value*1000+" g";
 
-if(op==="/"){
+if(type==="g")
+result=value/1000+" kg";
 
-if(b===0){
+if(type==="cm")
+result=value/100+" m";
 
-result="Cannot divide by zero";
+if(type==="mcm")
+result=value*100+" cm";
 
-}else{
-
-result=a/b;
+document.getElementById("unitResult")
+.innerText=result;
 
 }
 
+
+/* PASSWORD */
+
+let generatedPassword="";
+
+function generatePassword(){
+
+let length=
+Number(document.getElementById("passLength").value);
+
+if(length<4) length=4;
+if(length>50) length=50;
+
+let chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+generatedPassword="";
+
+for(let i=0;i<length;i++){
+
+generatedPassword+=
+chars.charAt(
+Math.floor(Math.random()*chars.length)
+);
+
 }
 
-document.getElementById("calcResult")
-.innerText=
-"Result: "+result;
+document.getElementById("passwordResult")
+.innerText=generatedPassword;
+
+}
+
+function copyPassword(){
+
+if(!generatedPassword){
+
+toast("Generate a password first");
+
+return;
+
+}
+
+navigator.clipboard.writeText(generatedPassword);
+
+toast("Password copied 📋");
 
 }
 
 
 /* TIME */
 
-function timeCalculate(){
+function timeCalc(){
 
 let start=
 document.getElementById("start").value;
@@ -1050,9 +857,9 @@ document.getElementById("start").value;
 let end=
 document.getElementById("end").value;
 
-if(!start || !end){
+if(!start||!end){
 
-showToast("Select both times");
+toast("Select both times");
 
 return;
 
@@ -1061,32 +868,18 @@ return;
 let s=start.split(":");
 let e=end.split(":");
 
-let sm=
-Number(s[0])*60+
-Number(s[1]);
+let sm=Number(s[0])*60+Number(s[1]);
+let em=Number(e[0])*60+Number(e[1]);
 
-let em=
-Number(e[0])*60+
-Number(e[1]);
-
-if(em<sm){
-em+=1440;
-}
+if(em<sm) em+=1440;
 
 let diff=em-sm;
 
-let hours=
-Math.floor(diff/60);
-
-let minutes=
-diff%60;
+let h=Math.floor(diff/60);
+let m=diff%60;
 
 document.getElementById("timeResult")
-.innerText=
-hours+
-" hour(s) "+
-minutes+
-" minute(s)";
+.innerText=h+" hour(s) "+m+" minute(s)";
 
 }
 
@@ -1094,25 +887,20 @@ minutes+
 /* COUNTER */
 
 let count=
-Number(
-localStorage.getItem("rajCount")
-)||0;
+Number(localStorage.getItem("rajCounter"))||0;
 
 function updateCounter(){
 
 document.getElementById("counter")
 .innerText=count;
 
-localStorage.setItem(
-"rajCount",
-count
-);
+localStorage.setItem("rajCounter",count);
 
 }
 
-function changeCounter(value){
+function changeCounter(n){
 
-count+=value;
+count+=n;
 
 updateCounter();
 
@@ -1124,58 +912,39 @@ count=0;
 
 updateCounter();
 
-showToast("Counter reset");
+toast("Counter reset");
 
 }
 
 updateCounter();
 
 
-/* RANDOM NUMBER */
+/* RANDOM */
 
 function randomNumber(){
 
 let min=
-Number(
-document.getElementById("min").value
-);
+Number(document.getElementById("min").value);
 
 let max=
-Number(
-document.getElementById("max").value
-);
+Number(document.getElementById("max").value);
 
-if(
-document.getElementById("min").value===""
-){
-
+if(document.getElementById("min").value==="")
 min=1;
 
-}
-
-if(
-document.getElementById("max").value===""
-){
-
+if(document.getElementById("max").value==="")
 max=100;
-
-}
 
 if(min>max){
 
-let temp=min;
-
+let x=min;
 min=max;
-
-max=temp;
+max=x;
 
 }
 
 let number=
-Math.floor(
-Math.random()*
-(max-min+1)
-)+min;
+Math.floor(Math.random()*(max-min+1))+min;
 
 document.getElementById("randomResult")
 .innerText=number;
@@ -1183,7 +952,7 @@ document.getElementById("randomResult")
 }
 
 
-/* COPY */
+/* TEXT */
 
 function copyText(){
 
@@ -1192,38 +961,25 @@ document.getElementById("text").value;
 
 if(!text){
 
-showToast("Write some text first");
+toast("Write something first");
 
 return;
 
 }
 
-navigator.clipboard.writeText(text)
-.then(function(){
+navigator.clipboard.writeText(text);
 
 document.getElementById("textResult")
-.innerText=
-"Copied successfully ✅";
+.innerText="Copied ✅";
 
-showToast("Text copied!");
-
-})
-.catch(function(){
-
-showToast("Copy not available");
-
-});
+toast("Text copied");
 
 }
 
-
 function clearText(){
 
-document.getElementById("text")
-.value="";
-
-document.getElementById("textResult")
-.innerText="";
+document.getElementById("text").value="";
+document.getElementById("textResult").innerText="";
 
 }
 
@@ -1237,18 +993,13 @@ document.getElementById("wordText").value;
 
 let words=
 text.trim()
-? text.trim().split(/\s+/).length
+?text.trim().split(/\s+/).length
 :0;
-
-let characters=
-text.length;
 
 document.getElementById("wordResult")
 .innerText=
-"Words: "+
-words+
-" | Characters: "+
-characters;
+"Words: "+words+
+" | Characters: "+text.length;
 
 }
 
@@ -1257,28 +1008,21 @@ characters;
 
 function searchTools(){
 
-let query=
+let q=
 document.getElementById("search")
 .value
 .toLowerCase();
 
 document.querySelectorAll(".tool")
-.forEach(function(tool){
+.forEach(function(card){
 
 let text=
-tool.innerText.toLowerCase();
+card.innerText.toLowerCase();
 
-if(
-text.includes(query)
-){
-
-tool.classList.remove("hidden");
-
-}else{
-
-tool.classList.add("hidden");
-
-}
+card.classList.toggle(
+"hidden",
+!text.includes(q)
+);
 
 });
 
@@ -1289,30 +1033,29 @@ tool.classList.add("hidden");
 
 let toastTimer;
 
-function showToast(message){
+function toast(message){
 
-let toast=
+let box=
 document.getElementById("toast");
 
-toast.innerText=message;
+box.innerText=message;
 
-toast.classList.add("show");
+box.classList.add("show");
 
 clearTimeout(toastTimer);
 
-toastTimer=
-setTimeout(function(){
+toastTimer=setTimeout(function(){
 
-toast.classList.remove("show");
+box.classList.remove("show");
 
-},2500);
+},2200);
 
 }
 
 
-/* HOME */
+/* NAVIGATION */
 
-function goHome(){
+function topPage(){
 
 window.scrollTo({
 top:0,
@@ -1321,7 +1064,25 @@ behavior:"smooth"
 
 }
 
+function toolsTop(){
+
+document.getElementById("tools")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function aboutTop(){
+
+document.querySelector(".about")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
 </script>
 
 </body>
-</html>
+  </html>
