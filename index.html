@@ -669,6 +669,12 @@ function decodeURL(){
 }
 
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js")
+        .then(() => console.log("Raj Tools Pro PWA Ready"))
+        .catch(error => console.log("Service Worker Error:", error));
+}
+</script>
 </body>
     </html>
