@@ -3,434 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Raj Tools Pro</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#080b10;
-color:white;
-padding-bottom:80px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-body.light{
-background:#f4f6f9;
-color:#111;
+body{
+    background:#0f1117;
+    color:white;
+    min-height:100vh;
 }
 
 header{
-padding:18px;
-background:#10151d;
-border-bottom:1px solid #252d38;
-position:sticky;
-top:0;
-z-index:20;
-}
-
-body.light header{
-background:white;
-border-color:#ddd;
-}
-
-.header{
-max-width:700px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
+    padding:22px 18px;
+    text-align:center;
+    background:linear-gradient(135deg,#161b2d,#11131c);
+    border-bottom:1px solid #292e3d;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:21px;
-font-weight:bold;
-color:#00e5ff;
+    font-size:28px;
+    font-weight:bold;
 }
 
-.logoIcon{
-width:40px;
-height:40px;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#00e5ff,#7067ff);
-font-size:21px;
-}
-
-.theme{
-border:0;
-border-radius:10px;
-padding:10px 13px;
-background:#202936;
-color:white;
-font-size:17px;
-}
-
-
-/* HOME */
-
-.home{
-max-width:700px;
-margin:auto;
-padding:30px 18px;
-}
-
-.hero{
-text-align:center;
-padding:20px 0 25px;
-}
-
-.heroIcon{
-font-size:55px;
-margin-bottom:10px;
-}
-
-.hero h1{
-font-size:36px;
-margin:8px 0;
-}
-
-.gradient{
-background:linear-gradient(90deg,#00e5ff,#8a5cff,#ff4d9d);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-color:#8d98a8;
-line-height:1.5;
-}
-
-
-/* SEARCH */
-
-.search{
-width:100%;
-padding:15px 17px;
-border-radius:14px;
-border:1px solid #303b49;
-background:#121821;
-color:white;
-font-size:16px;
-outline:none;
-margin-bottom:22px;
-}
-
-body.light .search{
-background:white;
-color:#111;
-border-color:#ccc;
-}
-
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-bottom:25px;
-}
-
-.stat{
-background:#111720;
-border:1px solid #242e3a;
-border-radius:15px;
-padding:15px 8px;
-text-align:center;
-}
-
-body.light .stat{
-background:white;
-border-color:#ddd;
-}
-
-.stat b{
-display:block;
-font-size:23px;
-color:#00e5ff;
-}
-
-.stat span{
-font-size:12px;
-color:#8994a3;
-}
-
-
-/* TOOLS */
-
-.title{
-font-size:23px;
-margin-bottom:5px;
+.logo span{
+    color:#00e5ff;
 }
 
 .subtitle{
-color:#8994a3;
-font-size:14px;
-margin-bottom:16px;
+    color:#9ca3af;
+    margin-top:6px;
+    font-size:14px;
+}
+
+.search{
+    margin:18px;
+}
+
+.search input{
+    width:100%;
+    padding:14px 17px;
+    border-radius:14px;
+    border:1px solid #303646;
+    background:#191d28;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+.container{
+    padding:0 18px 90px;
+}
+
+.section-title{
+    font-size:20px;
+    margin:10px 0 15px;
 }
 
 .tools{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:13px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
 }
 
-.tool{
-background:#111720;
-border:1px solid #242e3a;
-border-radius:17px;
-padding:18px 14px;
-cursor:pointer;
-transition:.2s;
+.card{
+    background:#191d28;
+    border:1px solid #292f40;
+    border-radius:18px;
+    padding:20px 14px;
+    cursor:pointer;
+    transition:.2s;
 }
 
-body.light .tool{
-background:white;
-border-color:#ddd;
+.card:active{
+    transform:scale(.96);
 }
 
-.tool:active{
-transform:scale(.97);
+.icon{
+    font-size:32px;
+    margin-bottom:12px;
 }
 
-.toolIcon{
-font-size:30px;
-margin-bottom:12px;
+.card h3{
+    font-size:16px;
+    margin-bottom:5px;
 }
 
-.tool h3{
-margin:0 0 6px;
-font-size:16px;
+.card p{
+    color:#8d96a8;
+    font-size:12px;
+    line-height:1.4;
 }
 
-.tool p{
-margin:0;
-font-size:12px;
-color:#8994a3;
-line-height:1.4;
+/* TOOL PAGE */
+
+.tool-page{
+    display:none;
+    padding:18px;
+    padding-bottom:100px;
 }
 
-
-/* MODAL */
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:100;
-align-items:flex-end;
-justify-content:center;
+.back{
+    display:inline-block;
+    background:#202636;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:12px;
+    cursor:pointer;
+    margin-bottom:20px;
 }
 
-.modal.show{
-display:flex;
+.tool-box{
+    background:#191d28;
+    border:1px solid #292f40;
+    border-radius:20px;
+    padding:20px;
 }
 
-.modalBox{
-width:100%;
-max-width:700px;
-max-height:90vh;
-overflow:auto;
-background:#111720;
-border-radius:24px 24px 0 0;
-padding:22px;
-animation:up .2s ease;
+.tool-title{
+    font-size:24px;
+    margin-bottom:20px;
 }
 
-body.light .modalBox{
-background:white;
-}
-
-@keyframes up{
-from{
-transform:translateY(100%);
-}
-to{
-transform:translateY(0);
-}
-}
-
-.modalHead{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.modalHead h2{
-margin:0;
-color:#00e5ff;
-}
-
-.close{
-background:#29323e;
-color:white;
-border:0;
-width:40px;
-height:40px;
-border-radius:50%;
-font-size:20px;
-}
-
-input,textarea,select{
-width:100%;
-padding:13px;
-margin:6px 0;
-border:1px solid #3a4653;
-border-radius:10px;
-background:#080b10;
-color:white;
-font-size:16px;
-}
-
-body.light input,
-body.light textarea,
-body.light select{
-background:#f4f5f7;
-color:#111;
-border-color:#ccc;
+input, textarea, select{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+    border-radius:12px;
+    border:1px solid #343b4d;
+    background:#10131b;
+    color:white;
+    outline:none;
+    font-size:15px;
 }
 
 textarea{
-min-height:120px;
-resize:vertical;
+    min-height:150px;
+    resize:vertical;
 }
 
-.btn{
-background:#00e5ff;
-color:#001014;
-border:0;
-padding:12px 18px;
-border-radius:10px;
-font-weight:bold;
-margin:5px 2px;
-}
-
-.btn2{
-background:#29333f;
-color:white;
-border:0;
-padding:12px 18px;
-border-radius:10px;
-font-weight:bold;
-margin:5px 2px;
+button.main-btn{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:0;
+    border-radius:13px;
+    background:#00c8e8;
+    color:#001014;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
 }
 
 .result{
-margin-top:13px;
-padding:13px;
-border-radius:10px;
-background:#00e5ff12;
-color:#00e5ff;
-font-weight:bold;
-word-break:break-word;
+    margin-top:15px;
+    padding:15px;
+    border-radius:13px;
+    background:#10131b;
+    border:1px solid #303646;
+    text-align:center;
+    font-size:18px;
 }
 
+/* CALCULATOR */
 
-/* ABOUT */
-
-.about{
-margin-top:25px;
-background:#111720;
-border:1px solid #242e3a;
-border-radius:18px;
-padding:22px;
-text-align:center;
+.calc-display{
+    width:100%;
+    padding:18px;
+    background:#10131b;
+    border:1px solid #343b4d;
+    border-radius:14px;
+    color:white;
+    font-size:25px;
+    text-align:right;
+    margin-bottom:12px;
 }
 
-body.light .about{
-background:white;
-border-color:#ddd;
+.calc-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
 }
 
-.about p{
-color:#8994a3;
-line-height:1.6;
-font-size:14px;
+.calc-grid button{
+    padding:17px 5px;
+    border:0;
+    border-radius:12px;
+    background:#252b3a;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
 }
 
-
-/* BOTTOM */
-
-.bottom{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-height:70px;
-background:#10151d;
-border-top:1px solid #252d38;
-display:flex;
-justify-content:space-around;
-align-items:center;
-z-index:50;
+.calc-grid button:active{
+    transform:scale(.94);
 }
 
-body.light .bottom{
-background:white;
-border-color:#ddd;
+.calc-grid .operator{
+    background:#00a9c5;
+    color:#001014;
 }
 
-.bottom button{
-background:none;
-border:0;
-color:#8994a3;
-font-size:11px;
+/* COUNTER */
+
+.counter-number{
+    font-size:65px;
+    text-align:center;
+    margin:25px 0;
 }
 
-.bottom span{
-display:block;
-font-size:22px;
-margin-bottom:3px;
+.counter-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
 }
 
-
-/* TOAST */
-
-#toast{
-position:fixed;
-bottom:85px;
-left:50%;
-transform:translate(-50%,100px);
-background:#00e5ff;
-color:#001014;
-padding:12px 18px;
-border-radius:10px;
-font-weight:bold;
-opacity:0;
-transition:.25s;
-z-index:200;
+.counter-buttons button{
+    padding:15px 5px;
+    border:0;
+    border-radius:12px;
+    background:#252b3a;
+    color:white;
+    font-weight:bold;
 }
 
-#toast.show{
-transform:translate(-50%,0);
-opacity:1;
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:#151923;
+    border-top:1px solid #292f40;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
 }
 
-.hidden{
-display:none!important;
+.nav-btn{
+    background:none;
+    border:0;
+    color:#8992a5;
+    font-size:12px;
+    cursor:pointer;
 }
 
-@media(max-width:430px){
-.tools{
-gap:10px;
+.nav-btn div{
+    font-size:21px;
+    margin-bottom:2px;
 }
 
-.tool{
-padding:15px 12px;
+.nav-btn.active{
+    color:#00e5ff;
 }
 
-.hero h1{
-font-size:31px;
-}
+/* DESKTOP */
+
+@media(min-width:700px){
+    .tools{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .container,
+    .tool-page{
+        max-width:900px;
+        margin:auto;
+    }
 }
 </style>
 </head>
@@ -438,459 +285,320 @@ font-size:31px;
 <body>
 
 <header>
-
-<div class="header">
-
-<div class="logo">
-<div class="logoIcon">🚀</div>
-Raj Tools
-</div>
-
-<button class="theme" onclick="toggleTheme()">🌙</button>
-
-</div>
-
+    <div class="logo">🚀 Raj <span>Tools Pro</span></div>
+    <div class="subtitle">Simple • Fast • Useful Tools</div>
 </header>
 
+<!-- HOME -->
 
-<main class="home">
+<div id="homePage">
 
-<section class="hero">
+    <div class="search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Search tools..."
+            oninput="searchTools()"
+        >
+    </div>
 
-<div class="heroIcon">🚀</div>
+    <div class="container">
 
-<h1>
-<span class="gradient">Raj Tools Pro</span>
-</h1>
+        <div class="section-title">🧰 All Tools</div>
 
-<p>
-Fast, simple and useful tools for everyday work.
-</p>
+        <div class="tools" id="toolsList">
 
-</section>
+            <div class="card" data-name="calculator" onclick="openTool('calculator')">
+                <div class="icon">🧮</div>
+                <h3>Calculator</h3>
+                <p>Calculate numbers quickly.</p>
+            </div>
 
+            <div class="card" data-name="time calculator" onclick="openTool('time')">
+                <div class="icon">⏱️</div>
+                <h3>Time Calculator</h3>
+                <p>Calculate time difference.</p>
+            </div>
 
-<input
-id="search"
-class="search"
-placeholder="🔍 Search tools..."
-oninput="searchTools()"
->
+            <div class="card" data-name="counter" onclick="openTool('counter')">
+                <div class="icon">🔢</div>
+                <h3>Counter</h3>
+                <p>Count anything easily.</p>
+            </div>
 
+            <div class="card" data-name="random number" onclick="openTool('random')">
+                <div class="icon">🎲</div>
+                <h3>Random Number</h3>
+                <p>Generate random numbers.</p>
+            </div>
 
-<div class="stats">
+            <div class="card" data-name="word counter" onclick="openTool('words')">
+                <div class="icon">📝</div>
+                <h3>Word Counter</h3>
+                <p>Count words and characters.</p>
+            </div>
 
-<div class="stat">
-<b>10+</b>
-<span>Tools</span>
-</div>
+            <div class="card" data-name="copy text" onclick="openTool('copy')">
+                <div class="icon">📋</div>
+                <h3>Copy Text</h3>
+                <p>Write and copy text instantly.</p>
+            </div>
 
-<div class="stat">
-<b>100%</b>
-<span>Free</span>
-</div>
-
-<div class="stat">
-<b>24/7</b>
-<span>Available</span>
-</div>
-
-</div>
-
-
-<h2 class="title">🛠️ All Tools</h2>
-
-<p class="subtitle">
-Tap any tool to open it.
-</p>
-
-
-<div class="tools">
-
-
-<div class="tool" data-name="calculator"
-onclick="openTool('calculator')">
-
-<div class="toolIcon">🧮</div>
-<h3>Calculator</h3>
-<p>Basic calculations</p>
-
+        </div>
+    </div>
 </div>
 
 
-<div class="tool" data-name="percentage"
-onclick="openTool('percentage')">
+<!-- CALCULATOR -->
 
-<div class="toolIcon">📊</div>
-<h3>Percentage</h3>
-<p>Calculate percentage</p>
+<div class="tool-page" id="calculator">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">🧮 Calculator</div>
+
+        <input
+            type="text"
+            id="calcDisplay"
+            class="calc-display"
+            readonly
+        >
+
+        <div class="calc-grid">
+
+            <button onclick="clearCalc()">C</button>
+            <button onclick="deleteCalc()">⌫</button>
+            <button onclick="addCalc('%')">%</button>
+            <button class="operator" onclick="addCalc('/')">÷</button>
+
+            <button onclick="addCalc('7')">7</button>
+            <button onclick="addCalc('8')">8</button>
+            <button onclick="addCalc('9')">9</button>
+            <button class="operator" onclick="addCalc('*')">×</button>
+
+            <button onclick="addCalc('4')">4</button>
+            <button onclick="addCalc('5')">5</button>
+            <button onclick="addCalc('6')">6</button>
+            <button class="operator" onclick="addCalc('-')">−</button>
+
+            <button onclick="addCalc('1')">1</button>
+            <button onclick="addCalc('2')">2</button>
+            <button onclick="addCalc('3')">3</button>
+            <button class="operator" onclick="addCalc('+')">+</button>
+
+            <button onclick="addCalc('0')">0</button>
+            <button onclick="addCalc('.')">.</button>
+            <button onclick="calculate()" style="grid-column:span 2">=</button>
+
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="unit converter"
-onclick="openTool('unit')">
+<!-- TIME CALCULATOR -->
 
-<div class="toolIcon">🔄</div>
-<h3>Unit Converter</h3>
-<p>Convert units</p>
+<div class="tool-page" id="time">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">⏱️ Time Calculator</div>
+
+        <label>Start Time</label>
+        <input type="time" id="startTime">
+
+        <label>End Time</label>
+        <input type="time" id="endTime">
+
+        <button class="main-btn" onclick="calculateTime()">
+            Calculate Difference
+        </button>
+
+        <div class="result" id="timeResult">
+            Result will appear here
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="password generator"
-onclick="openTool('password')">
+<!-- COUNTER -->
 
-<div class="toolIcon">🔐</div>
-<h3>Password</h3>
-<p>Generate password</p>
+<div class="tool-page" id="counter">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">🔢 Counter</div>
+
+        <div class="counter-number" id="counterValue">
+            0
+        </div>
+
+        <div class="counter-buttons">
+
+            <button onclick="changeCounter(-1)">
+                −1
+            </button>
+
+            <button onclick="resetCounter()">
+                Reset
+            </button>
+
+            <button onclick="changeCounter(1)">
+                +1
+            </button>
+
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="time calculator"
-onclick="openTool('time')">
+<!-- RANDOM NUMBER -->
 
-<div class="toolIcon">⏱️</div>
-<h3>Time Calculator</h3>
-<p>Calculate time gap</p>
+<div class="tool-page" id="random">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">🎲 Random Number</div>
+
+        <input
+            type="number"
+            id="minNumber"
+            placeholder="Minimum number"
+        >
+
+        <input
+            type="number"
+            id="maxNumber"
+            placeholder="Maximum number"
+        >
+
+        <button class="main-btn" onclick="randomNumber()">
+            Generate
+        </button>
+
+        <div class="result" id="randomResult">
+            Your number will appear here
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="counter"
-onclick="openTool('counter')">
+<!-- WORD COUNTER -->
 
-<div class="toolIcon">🔢</div>
-<h3>Counter</h3>
-<p>Count anything</p>
+<div class="tool-page" id="words">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">📝 Word Counter</div>
+
+        <textarea
+            id="wordText"
+            placeholder="Type or paste your text here..."
+            oninput="countWords()"
+        ></textarea>
+
+        <div class="result" id="wordResult">
+            Words: 0<br>
+            Characters: 0
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="random number"
-onclick="openTool('random')">
+<!-- COPY TEXT -->
 
-<div class="toolIcon">🎲</div>
-<h3>Random Number</h3>
-<p>Generate random</p>
+<div class="tool-page" id="copy">
 
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="tool-box">
+
+        <div class="tool-title">📋 Copy Text</div>
+
+        <textarea
+            id="copyText"
+            placeholder="Write your text here..."
+        ></textarea>
+
+        <button class="main-btn" onclick="copyText()">
+            📋 Copy Text
+        </button>
+
+        <div class="result" id="copyResult">
+            Ready
+        </div>
+
+    </div>
 </div>
 
 
-<div class="tool" data-name="text copy"
-onclick="openTool('text')">
-
-<div class="toolIcon">📝</div>
-<h3>Text Tool</h3>
-<p>Write & copy text</p>
-
-</div>
-
-
-<div class="tool" data-name="word counter"
-onclick="openTool('word')">
-
-<div class="toolIcon">🔤</div>
-<h3>Word Counter</h3>
-<p>Count words</p>
-
-</div>
-
-
-<div class="tool" data-name="notification"
-onclick="openTool('message')">
-
-<div class="toolIcon">🔔</div>
-<h3>Notification</h3>
-<p>Test notification</p>
-
-</div>
-
-</div>
-
-
-<div class="about">
-
-<h2>👨‍💻 Raj Tools</h2>
-
-<br>
-
-<p>
-A mobile-friendly collection of useful browser tools.
-Everything runs directly in your browser.
-</p>
-
-</div>
-
-</main>
-
-
-<!-- MODAL -->
-
-<div id="modal" class="modal" onclick="outsideClose(event)">
-
-<div class="modalBox">
-
-<div class="modalHead">
-
-<h2 id="modalTitle">Tool</h2>
-
-<button class="close" onclick="closeTool()">×</button>
-
-</div>
-
-
-<div id="calculator" class="toolContent">
-
-<input id="a" type="number" placeholder="First number">
-
-<input id="b" type="number" placeholder="Second number">
-
-<button class="btn" onclick="calc('+')">+</button>
-<button class="btn" onclick="calc('-')">−</button>
-<button class="btn" onclick="calc('*')">×</button>
-<button class="btn" onclick="calc('/')">÷</button>
-
-<div id="calcResult" class="result">
-Result: —
-</div>
-
-</div>
-
-
-<div id="percentage" class="toolContent hidden">
-
-<input id="pv" type="number" placeholder="Value">
-
-<input id="pt" type="number" placeholder="Total">
-
-<button class="btn" onclick="percentage()">Calculate</button>
-
-<div id="percentageResult" class="result">—</div>
-
-</div>
-
-
-<div id="unit" class="toolContent hidden">
-
-<input id="uv" type="number" placeholder="Enter value">
-
-<select id="ut">
-
-<option value="km">Kilometer → Meter</option>
-<option value="m">Meter → Kilometer</option>
-<option value="kg">Kilogram → Gram</option>
-<option value="g">Gram → Kilogram</option>
-<option value="cm">Centimeter → Meter</option>
-<option value="mc">Meter → Centimeter</option>
-
-</select>
-
-<button class="btn" onclick="convert()">Convert</button>
-
-<div id="unitResult" class="result">—</div>
-
-</div>
-
-
-<div id="password" class="toolContent hidden">
-
-<input
-id="pl"
-type="number"
-value="12"
-min="4"
-max="50"
-placeholder="Password length">
-
-<button class="btn" onclick="generatePassword()">
-Generate
-</button>
-
-<button class="btn2" onclick="copyPassword()">
-📋 Copy
-</button>
-
-<div id="passwordResult" class="result">—</div>
-
-</div>
-
-
-<div id="time" class="toolContent hidden">
-
-<input id="start" type="time">
-
-<input id="end" type="time">
-
-<button class="btn" onclick="timeCalc()">
-Calculate
-</button>
-
-<div id="timeResult" class="result">—</div>
-
-</div>
-
-
-<div id="counter" class="toolContent hidden">
-
-<div id="counterValue" class="result">0</div>
-
-<button class="btn" onclick="changeCounter(1)">+1</button>
-
-<button class="btn" onclick="changeCounter(-1)">−1</button>
-
-<button class="btn2" onclick="resetCounter()">Reset</button>
-
-</div>
-
-
-<div id="random" class="toolContent hidden">
-
-<input id="min" type="number" placeholder="Minimum">
-
-<input id="max" type="number" placeholder="Maximum">
-
-<button class="btn" onclick="randomNumber()">
-Generate
-</button>
-
-<div id="randomResult" class="result">—</div>
-
-</div>
-
-
-<div id="text" class="toolContent hidden">
-
-<textarea
-id="textInput"
-placeholder="Write something..."
-></textarea>
-
-<button class="btn" onclick="copyText()">
-📋 Copy
-</button>
-
-<button class="btn2" onclick="clearText()">
-Clear
-</button>
-
-<div id="textResult" class="result"></div>
-
-</div>
-
-
-<div id="word" class="toolContent hidden">
-
-<textarea
-id="wordInput"
-placeholder="Type your text..."
-oninput="wordCount()"
-></textarea>
-
-<div id="wordResult" class="result">
-Words: 0 | Characters: 0
-</div>
-
-</div>
-
-
-<div id="message" class="toolContent hidden">
-
-<p>
-Test the Raj Tools notification system.
-</p>
-
-<button class="btn"
-onclick="toast('Welcome to Raj Tools! 🚀')">
-🔔 Test Notification
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div id="toast">
-Done!
-</div>
-
-
-<div class="bottom">
-
-<button onclick="goTop()">
-<span>🏠</span>
-Home
-</button>
-
-<button onclick="focusTools()">
-<span>🛠️</span>
-Tools
-</button>
-
-<button onclick="openTool('message')">
-<span>🔔</span>
-Test
-</button>
-
-<button onclick="toggleTheme()">
-<span>🌙</span>
-Theme
-</button>
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <button class="nav-btn active" onclick="goHome()">
+        <div>🏠</div>
+        Home
+    </button>
+
+    <button class="nav-btn" onclick="goHome()">
+        <div>🧰</div>
+        Tools
+    </button>
+
+    <button class="nav-btn">
+        <div>⭐</div>
+        More
+    </button>
 
 </div>
 
 
 <script>
 
-/* MODAL */
+/* PAGE SYSTEM */
 
-let titles={
-calculator:"🧮 Calculator",
-percentage:"📊 Percentage",
-unit:"🔄 Unit Converter",
-password:"🔐 Password Generator",
-time:"⏱️ Time Calculator",
-counter:"🔢 Counter",
-random:"🎲 Random Number",
-text:"📝 Text Tool",
-word:"🔤 Word Counter",
-message:"🔔 Notification"
-};
+function openTool(tool){
 
-function openTool(id){
+    document.getElementById("homePage").style.display="none";
 
-document.querySelectorAll(".toolContent")
-.forEach(function(x){
-x.classList.add("hidden");
-});
+    let pages=document.querySelectorAll(".tool-page");
 
-document.getElementById(id)
-.classList.remove("hidden");
+    pages.forEach(function(page){
+        page.style.display="none";
+    });
 
-document.getElementById("modalTitle")
-.innerText=titles[id];
+    document.getElementById(tool).style.display="block";
 
-document.getElementById("modal")
-.classList.add("show");
-
+    window.scrollTo(0,0);
 }
 
-function closeTool(){
 
-document.getElementById("modal")
-.classList.remove("show");
+function goHome(){
 
-}
+    document.getElementById("homePage").style.display="block";
 
-function outsideClose(e){
+    let pages=document.querySelectorAll(".tool-page");
 
-if(e.target.id==="modal"){
-closeTool();
-}
+    pages.forEach(function(page){
+        page.style.display="none";
+    });
 
+    window.scrollTo(0,0);
 }
 
 
@@ -898,353 +606,212 @@ closeTool();
 
 function searchTools(){
 
-let q=
-document.getElementById("search")
-.value
-.toLowerCase();
+    let input=document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
 
-document.querySelectorAll(".tool")
-.forEach(function(card){
+    let cards=document.querySelectorAll(".card");
 
-let name=
-card.dataset.name;
+    cards.forEach(function(card){
 
-if(name.includes(q)){
-card.classList.remove("hidden");
-}else{
-card.classList.add("hidden");
-}
+        let name=card
+            .getAttribute("data-name")
+            .toLowerCase();
 
-});
+        if(name.includes(input)){
+            card.style.display="block";
+        }else{
+            card.style.display="none";
+        }
 
+    });
 }
 
 
 /* CALCULATOR */
 
-function calc(op){
+let calcDisplay=document.getElementById("calcDisplay");
 
-let a=Number(document.getElementById("a").value);
-let b=Number(document.getElementById("b").value);
-
-let r;
-
-if(op==="+") r=a+b;
-if(op==="-") r=a-b;
-if(op==="*") r=a*b;
-
-if(op==="/"){
-r=b===0?"Cannot divide by zero":a/b;
+function addCalc(value){
+    calcDisplay.value+=value;
 }
 
-document.getElementById("calcResult")
-.innerText="Result: "+r;
-
+function clearCalc(){
+    calcDisplay.value="";
 }
 
-
-/* PERCENTAGE */
-
-function percentage(){
-
-let v=Number(document.getElementById("pv").value);
-let t=Number(document.getElementById("pt").value);
-
-if(t===0){
-
-document.getElementById("percentageResult")
-.innerText="Total cannot be zero";
-
-return;
-
+function deleteCalc(){
+    calcDisplay.value=
+        calcDisplay.value.slice(0,-1);
 }
 
-document.getElementById("percentageResult")
-.innerText=
-((v/t)*100).toFixed(2)+"%";
+function calculate(){
+
+    try{
+
+        let expression=calcDisplay.value;
+
+        expression=expression.replace(
+            /%/g,
+            "/100"
+        );
+
+        calcDisplay.value=eval(expression);
+
+    }catch(error){
+
+        calcDisplay.value="Error";
+
+    }
 
 }
 
 
-/* UNIT */
+/* TIME CALCULATOR */
 
-function convert(){
+function calculateTime(){
 
-let v=Number(document.getElementById("uv").value);
-let type=document.getElementById("ut").value;
-let r;
+    let start=document.getElementById("startTime").value;
+    let end=document.getElementById("endTime").value;
 
-if(type==="km") r=v*1000+" m";
-if(type==="m") r=v/1000+" km";
-if(type==="kg") r=v*1000+" g";
-if(type==="g") r=v/1000+" kg";
-if(type==="cm") r=v/100+" m";
-if(type==="mc") r=v*100+" cm";
+    if(!start || !end){
 
-document.getElementById("unitResult").innerText=r;
+        document.getElementById("timeResult").innerText=
+            "Please select both times.";
 
-}
+        return;
+    }
 
+    let startParts=start.split(":");
+    let endParts=end.split(":");
 
-/* PASSWORD */
+    let startMinutes=
+        Number(startParts[0])*60+
+        Number(startParts[1]);
 
-let generated="";
+    let endMinutes=
+        Number(endParts[0])*60+
+        Number(endParts[1]);
 
-function generatePassword(){
+    if(endMinutes<startMinutes){
+        endMinutes+=24*60;
+    }
 
-let len=Number(
-document.getElementById("pl").value
-);
+    let difference=endMinutes-startMinutes;
 
-if(len<4) len=4;
-if(len>50) len=50;
+    let hours=Math.floor(difference/60);
+    let minutes=difference%60;
 
-let chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-generated="";
-
-for(let i=0;i<len;i++){
-
-generated+=chars[
-Math.floor(Math.random()*chars.length)
-];
-
-}
-
-document.getElementById("passwordResult")
-.innerText=generated;
-
-}
-
-function copyPassword(){
-
-if(!generated){
-
-toast("Generate password first");
-
-return;
-
-}
-
-navigator.clipboard.writeText(generated);
-
-toast("Password copied 📋");
-
-}
-
-
-/* TIME */
-
-function timeCalc(){
-
-let s=document.getElementById("start").value;
-let e=document.getElementById("end").value;
-
-if(!s||!e){
-
-toast("Select both times");
-
-return;
-
-}
-
-let a=s.split(":");
-let b=e.split(":");
-
-let sm=Number(a[0])*60+Number(a[1]);
-let em=Number(b[0])*60+Number(b[1]);
-
-if(em<sm) em+=1440;
-
-let d=em-sm;
-
-let h=Math.floor(d/60);
-let m=d%60;
-
-document.getElementById("timeResult")
-.innerText=
-h+" hour(s) "+m+" minute(s)";
+    document.getElementById("timeResult").innerText=
+        hours+" hour(s) "+minutes+" minute(s)";
 
 }
 
 
 /* COUNTER */
 
-let count=
-Number(localStorage.getItem("rajCounter"))||0;
+let counter=0;
 
-function updateCounter(){
+function changeCounter(number){
 
-document.getElementById("counterValue")
-.innerText=count;
+    counter+=number;
 
-localStorage.setItem("rajCounter",count);
-
-}
-
-function changeCounter(n){
-
-count+=n;
-updateCounter();
-
+    document.getElementById("counterValue")
+        .innerText=counter;
 }
 
 function resetCounter(){
 
-count=0;
-updateCounter();
+    counter=0;
 
+    document.getElementById("counterValue")
+        .innerText=counter;
 }
 
 
-/* RANDOM */
+/* RANDOM NUMBER */
 
 function randomNumber(){
 
-let min=Number(document.getElementById("min").value);
-let max=Number(document.getElementById("max").value);
+    let min=Number(
+        document.getElementById("minNumber").value
+    );
 
-if(document.getElementById("min").value==="")
-min=1;
+    let max=Number(
+        document.getElementById("maxNumber").value
+    );
 
-if(document.getElementById("max").value==="")
-max=100;
+    if(
+        isNaN(min) ||
+        isNaN(max) ||
+        min>max
+    ){
 
-if(min>max){
+        document.getElementById("randomResult")
+            .innerText="Enter valid numbers.";
 
-let x=min;
-min=max;
-max=x;
+        return;
+    }
 
+    let result=
+        Math.floor(
+            Math.random()*(max-min+1)
+        )+min;
+
+    document.getElementById("randomResult")
+        .innerText=result;
 }
 
-let r=
-Math.floor(Math.random()*(max-min+1))+min;
 
-document.getElementById("randomResult")
-.innerText=r;
+/* WORD COUNTER */
 
+function countWords(){
+
+    let text=
+        document.getElementById("wordText").value;
+
+    let words=text.trim()===""
+        ?0
+        :text.trim().split(/\s+/).length;
+
+    let characters=text.length;
+
+    document.getElementById("wordResult").innerHTML=
+        "Words: "+words+
+        "<br>Characters: "+characters;
 }
 
 
-/* TEXT */
+/* COPY TEXT */
 
 function copyText(){
 
-let text=
-document.getElementById("textInput").value;
+    let text=
+        document.getElementById("copyText").value;
 
-if(!text){
+    if(text.trim()===""){
 
-toast("Write something first");
+        document.getElementById("copyResult")
+            .innerText="Nothing to copy.";
 
-return;
+        return;
+    }
 
+    navigator.clipboard.writeText(text)
+        .then(function(){
+
+            document.getElementById("copyResult")
+                .innerText="✅ Text copied!";
+
+        })
+        .catch(function(){
+
+            document.getElementById("copyResult")
+                .innerText="Copy failed.";
+
+        });
 }
-
-navigator.clipboard.writeText(text);
-
-document.getElementById("textResult")
-.innerText="Copied successfully ✅";
-
-toast("Text copied");
-
-}
-
-function clearText(){
-
-document.getElementById("textInput").value="";
-document.getElementById("textResult").innerText="";
-
-}
-
-
-/* WORD */
-
-function wordCount(){
-
-let text=
-document.getElementById("wordInput").value;
-
-let words=
-text.trim()
-?text.trim().split(/\s+/).length
-:0;
-
-document.getElementById("wordResult")
-.innerText=
-"Words: "+words+
-" | Characters: "+text.length;
-
-}
-
-
-/* THEME */
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-let light=
-document.body.classList.contains("light");
-
-localStorage.setItem("rajLight",light);
-
-toast(
-light
-?"Light mode ☀️"
-:"Dark mode 🌙"
-);
-
-}
-
-if(localStorage.getItem("rajLight")==="true"){
-document.body.classList.add("light");
-}
-
-
-/* TOAST */
-
-let timer;
-
-function toast(msg){
-
-let box=document.getElementById("toast");
-
-box.innerText=msg;
-box.classList.add("show");
-
-clearTimeout(timer);
-
-timer=setTimeout(function(){
-box.classList.remove("show");
-},2200);
-
-}
-
-
-/* NAV */
-
-function goTop(){
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-function focusTools(){
-
-document.querySelector(".title")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-updateCounter();
 
 </script>
 
