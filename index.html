@@ -14,17 +14,37 @@
     font-family:Arial,sans-serif;
 }
 
+:root{
+    --bg:#0f1117;
+    --card:#191d28;
+    --header:#151927;
+    --border:#2b3141;
+    --text:#ffffff;
+    --muted:#929aaa;
+    --accent:#00d9ff;
+}
+
+body.light{
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --header:#ffffff;
+    --border:#dce1e8;
+    --text:#151922;
+    --muted:#687080;
+}
+
 body{
-    background:#0f1117;
-    color:white;
+    background:var(--bg);
+    color:var(--text);
     min-height:100vh;
+    transition:.25s;
 }
 
 header{
     padding:22px 18px;
     text-align:center;
-    background:linear-gradient(135deg,#161b2d,#11131c);
-    border-bottom:1px solid #292e3d;
+    background:var(--header);
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
@@ -33,13 +53,30 @@ header{
 }
 
 .logo span{
-    color:#00e5ff;
+    color:var(--accent);
 }
 
 .subtitle{
-    color:#9ca3af;
+    color:var(--muted);
     margin-top:6px;
     font-size:14px;
+}
+
+.top-buttons{
+    position:absolute;
+    right:15px;
+    top:20px;
+}
+
+.theme-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:19px;
+    cursor:pointer;
 }
 
 .search{
@@ -48,22 +85,38 @@ header{
 
 .search input{
     width:100%;
-    padding:14px 17px;
+    padding:15px 17px;
     border-radius:14px;
-    border:1px solid #303646;
-    background:#191d28;
-    color:white;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
     outline:none;
     font-size:15px;
 }
 
 .container{
     padding:0 18px 90px;
+    max-width:950px;
+    margin:auto;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:18px 0 14px;
 }
 
 .section-title{
-    font-size:20px;
-    margin:10px 0 15px;
+    font-size:21px;
+}
+
+.clear-btn{
+    border:0;
+    background:none;
+    color:var(--accent);
+    cursor:pointer;
+    font-size:13px;
 }
 
 .tools{
@@ -73,8 +126,9 @@ header{
 }
 
 .card{
-    background:#191d28;
-    border:1px solid #292f40;
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:18px;
     padding:20px 14px;
     cursor:pointer;
@@ -92,13 +146,34 @@ header{
 
 .card h3{
     font-size:16px;
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 .card p{
-    color:#8d96a8;
+    color:var(--muted);
     font-size:12px;
     line-height:1.4;
+}
+
+.star{
+    position:absolute;
+    right:12px;
+    top:12px;
+    border:0;
+    background:none;
+    color:#777;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.star.active{
+    color:#ffd21c;
+}
+
+.empty{
+    color:var(--muted);
+    padding:15px 0;
+    font-size:14px;
 }
 
 /* TOOL PAGE */
@@ -107,13 +182,15 @@ header{
     display:none;
     padding:18px;
     padding-bottom:100px;
+    max-width:700px;
+    margin:auto;
 }
 
 .back{
     display:inline-block;
-    background:#202636;
-    color:white;
-    border:none;
+    background:var(--card);
+    color:var(--text);
+    border:1px solid var(--border);
     padding:10px 15px;
     border-radius:12px;
     cursor:pointer;
@@ -121,8 +198,8 @@ header{
 }
 
 .tool-box{
-    background:#191d28;
-    border:1px solid #292f40;
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:20px;
     padding:20px;
 }
@@ -132,14 +209,15 @@ header{
     margin-bottom:20px;
 }
 
-input, textarea, select{
+input,
+textarea{
     width:100%;
     padding:13px;
     margin:7px 0;
     border-radius:12px;
-    border:1px solid #343b4d;
-    background:#10131b;
-    color:white;
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
     outline:none;
     font-size:15px;
 }
@@ -149,13 +227,13 @@ textarea{
     resize:vertical;
 }
 
-button.main-btn{
+.main-btn{
     width:100%;
     padding:14px;
     margin-top:10px;
     border:0;
     border-radius:13px;
-    background:#00c8e8;
+    background:var(--accent);
     color:#001014;
     font-weight:bold;
     font-size:15px;
@@ -166,8 +244,8 @@ button.main-btn{
     margin-top:15px;
     padding:15px;
     border-radius:13px;
-    background:#10131b;
-    border:1px solid #303646;
+    background:var(--bg);
+    border:1px solid var(--border);
     text-align:center;
     font-size:18px;
 }
@@ -177,10 +255,10 @@ button.main-btn{
 .calc-display{
     width:100%;
     padding:18px;
-    background:#10131b;
-    border:1px solid #343b4d;
+    background:var(--bg);
+    border:1px solid var(--border);
     border-radius:14px;
-    color:white;
+    color:var(--text);
     font-size:25px;
     text-align:right;
     margin-bottom:12px;
@@ -234,7 +312,7 @@ button.main-btn{
     font-weight:bold;
 }
 
-/* BOTTOM NAV */
+/* BOTTOM */
 
 .bottom-nav{
     position:fixed;
@@ -242,17 +320,18 @@ button.main-btn{
     left:0;
     right:0;
     height:65px;
-    background:#151923;
-    border-top:1px solid #292f40;
+    background:var(--header);
+    border-top:1px solid var(--border);
     display:flex;
     justify-content:space-around;
     align-items:center;
+    z-index:100;
 }
 
 .nav-btn{
     background:none;
     border:0;
-    color:#8992a5;
+    color:var(--muted);
     font-size:12px;
     cursor:pointer;
 }
@@ -263,20 +342,12 @@ button.main-btn{
 }
 
 .nav-btn.active{
-    color:#00e5ff;
+    color:var(--accent);
 }
-
-/* DESKTOP */
 
 @media(min-width:700px){
     .tools{
         grid-template-columns:repeat(3,1fr);
-    }
-
-    .container,
-    .tool-page{
-        max-width:900px;
-        margin:auto;
     }
 }
 </style>
@@ -285,9 +356,23 @@ button.main-btn{
 <body>
 
 <header>
-    <div class="logo">🚀 Raj <span>Tools Pro</span></div>
-    <div class="subtitle">Simple • Fast • Useful Tools</div>
+
+    <div class="top-buttons">
+        <button class="theme-btn" onclick="toggleTheme()" id="themeButton">
+            🌙
+        </button>
+    </div>
+
+    <div class="logo">
+        🚀 Raj <span>Tools Pro</span>
+    </div>
+
+    <div class="subtitle">
+        Simple • Fast • Useful Tools
+    </div>
+
 </header>
+
 
 <!-- HOME -->
 
@@ -304,47 +389,147 @@ button.main-btn{
 
     <div class="container">
 
-        <div class="section-title">🧰 All Tools</div>
+        <!-- FAVORITES -->
+
+        <div class="section-head">
+            <div class="section-title">⭐ Favorites</div>
+
+            <button class="clear-btn" onclick="clearFavorites()">
+                Clear
+            </button>
+        </div>
+
+        <div class="tools" id="favoriteList"></div>
+
+        <div class="empty" id="favoriteEmpty">
+            No favorite tools yet.
+        </div>
+
+
+        <!-- RECENT -->
+
+        <div class="section-head">
+            <div class="section-title">🕘 Recent Tools</div>
+        </div>
+
+        <div class="tools" id="recentList"></div>
+
+        <div class="empty" id="recentEmpty">
+            Open a tool to see it here.
+        </div>
+
+
+        <!-- ALL TOOLS -->
+
+        <div class="section-head">
+            <div class="section-title">🧰 All Tools</div>
+        </div>
 
         <div class="tools" id="toolsList">
 
-            <div class="card" data-name="calculator" onclick="openTool('calculator')">
-                <div class="icon">🧮</div>
-                <h3>Calculator</h3>
-                <p>Calculate numbers quickly.</p>
+            <div class="card" data-name="calculator">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'calculator')"
+                    id="star-calculator"
+                >☆</button>
+
+                <div onclick="openTool('calculator','Calculator')">
+                    <div class="icon">🧮</div>
+                    <h3>Calculator</h3>
+                    <p>Calculate numbers quickly.</p>
+                </div>
+
             </div>
 
-            <div class="card" data-name="time calculator" onclick="openTool('time')">
-                <div class="icon">⏱️</div>
-                <h3>Time Calculator</h3>
-                <p>Calculate time difference.</p>
+
+            <div class="card" data-name="time calculator">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'time')"
+                    id="star-time"
+                >☆</button>
+
+                <div onclick="openTool('time','Time Calculator')">
+                    <div class="icon">⏱️</div>
+                    <h3>Time Calculator</h3>
+                    <p>Calculate time difference.</p>
+                </div>
+
             </div>
 
-            <div class="card" data-name="counter" onclick="openTool('counter')">
-                <div class="icon">🔢</div>
-                <h3>Counter</h3>
-                <p>Count anything easily.</p>
+
+            <div class="card" data-name="counter">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'counter')"
+                    id="star-counter"
+                >☆</button>
+
+                <div onclick="openTool('counter','Counter')">
+                    <div class="icon">🔢</div>
+                    <h3>Counter</h3>
+                    <p>Count anything easily.</p>
+                </div>
+
             </div>
 
-            <div class="card" data-name="random number" onclick="openTool('random')">
-                <div class="icon">🎲</div>
-                <h3>Random Number</h3>
-                <p>Generate random numbers.</p>
+
+            <div class="card" data-name="random number">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'random')"
+                    id="star-random"
+                >☆</button>
+
+                <div onclick="openTool('random','Random Number')">
+                    <div class="icon">🎲</div>
+                    <h3>Random Number</h3>
+                    <p>Generate random numbers.</p>
+                </div>
+
             </div>
 
-            <div class="card" data-name="word counter" onclick="openTool('words')">
-                <div class="icon">📝</div>
-                <h3>Word Counter</h3>
-                <p>Count words and characters.</p>
+
+            <div class="card" data-name="word counter">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'words')"
+                    id="star-words"
+                >☆</button>
+
+                <div onclick="openTool('words','Word Counter')">
+                    <div class="icon">📝</div>
+                    <h3>Word Counter</h3>
+                    <p>Count words and characters.</p>
+                </div>
+
             </div>
 
-            <div class="card" data-name="copy text" onclick="openTool('copy')">
-                <div class="icon">📋</div>
-                <h3>Copy Text</h3>
-                <p>Write and copy text instantly.</p>
+
+            <div class="card" data-name="copy text">
+
+                <button
+                    class="star"
+                    onclick="toggleFavorite(event,'copy')"
+                    id="star-copy"
+                >☆</button>
+
+                <div onclick="openTool('copy','Copy Text')">
+                    <div class="icon">📋</div>
+                    <h3>Copy Text</h3>
+                    <p>Write and copy text instantly.</p>
+                </div>
+
             </div>
 
         </div>
+
     </div>
 </div>
 
@@ -390,7 +575,9 @@ button.main-btn{
 
             <button onclick="addCalc('0')">0</button>
             <button onclick="addCalc('.')">.</button>
-            <button onclick="calculate()" style="grid-column:span 2">=</button>
+            <button onclick="calculate()" style="grid-column:span 2">
+                =
+            </button>
 
         </div>
 
@@ -398,7 +585,7 @@ button.main-btn{
 </div>
 
 
-<!-- TIME CALCULATOR -->
+<!-- TIME -->
 
 <div class="tool-page" id="time">
 
@@ -408,10 +595,8 @@ button.main-btn{
 
         <div class="tool-title">⏱️ Time Calculator</div>
 
-        <label>Start Time</label>
         <input type="time" id="startTime">
 
-        <label>End Time</label>
         <input type="time" id="endTime">
 
         <button class="main-btn" onclick="calculateTime()">
@@ -460,7 +645,7 @@ button.main-btn{
 </div>
 
 
-<!-- RANDOM NUMBER -->
+<!-- RANDOM -->
 
 <div class="tool-page" id="random">
 
@@ -494,7 +679,7 @@ button.main-btn{
 </div>
 
 
-<!-- WORD COUNTER -->
+<!-- WORDS -->
 
 <div class="tool-page" id="words">
 
@@ -506,7 +691,7 @@ button.main-btn{
 
         <textarea
             id="wordText"
-            placeholder="Type or paste your text here..."
+            placeholder="Type or paste your text..."
             oninput="countWords()"
         ></textarea>
 
@@ -519,7 +704,7 @@ button.main-btn{
 </div>
 
 
-<!-- COPY TEXT -->
+<!-- COPY -->
 
 <div class="tool-page" id="copy">
 
@@ -560,9 +745,9 @@ button.main-btn{
         Tools
     </button>
 
-    <button class="nav-btn">
+    <button class="nav-btn" onclick="showFavorites()">
         <div>⭐</div>
-        More
+        Favorites
     </button>
 
 </div>
@@ -570,19 +755,263 @@ button.main-btn{
 
 <script>
 
-/* PAGE SYSTEM */
+/* =========================
+   TOOL DATA
+========================= */
 
-function openTool(tool){
+const toolData = {
 
-    document.getElementById("homePage").style.display="none";
+    calculator:{
+        name:"Calculator",
+        icon:"🧮",
+        desc:"Calculate numbers quickly."
+    },
 
-    let pages=document.querySelectorAll(".tool-page");
+    time:{
+        name:"Time Calculator",
+        icon:"⏱️",
+        desc:"Calculate time difference."
+    },
 
-    pages.forEach(function(page){
-        page.style.display="none";
+    counter:{
+        name:"Counter",
+        icon:"🔢",
+        desc:"Count anything easily."
+    },
+
+    random:{
+        name:"Random Number",
+        icon:"🎲",
+        desc:"Generate random numbers."
+    },
+
+    words:{
+        name:"Word Counter",
+        icon:"📝",
+        desc:"Count words and characters."
+    },
+
+    copy:{
+        name:"Copy Text",
+        icon:"📋",
+        desc:"Write and copy text instantly."
+    }
+
+};
+
+
+/* =========================
+   FAVORITES
+========================= */
+
+let favorites=
+    JSON.parse(localStorage.getItem("rajFavorites")) || [];
+
+
+function toggleFavorite(event,id){
+
+    event.stopPropagation();
+
+    if(favorites.includes(id)){
+
+        favorites=favorites.filter(
+            item=>item!==id
+        );
+
+    }else{
+
+        favorites.push(id);
+
+    }
+
+    localStorage.setItem(
+        "rajFavorites",
+        JSON.stringify(favorites)
+    );
+
+    updateStars();
+    renderFavorites();
+}
+
+
+function updateStars(){
+
+    Object.keys(toolData).forEach(function(id){
+
+        let star=document.getElementById(
+            "star-"+id
+        );
+
+        if(!star) return;
+
+        if(favorites.includes(id)){
+
+            star.innerText="★";
+            star.classList.add("active");
+
+        }else{
+
+            star.innerText="☆";
+            star.classList.remove("active");
+
+        }
+
     });
 
-    document.getElementById(tool).style.display="block";
+}
+
+
+function clearFavorites(){
+
+    favorites=[];
+
+    localStorage.setItem(
+        "rajFavorites",
+        JSON.stringify(favorites)
+    );
+
+    updateStars();
+    renderFavorites();
+}
+
+
+function renderFavorites(){
+
+    let box=
+        document.getElementById("favoriteList");
+
+    let empty=
+        document.getElementById("favoriteEmpty");
+
+    box.innerHTML="";
+
+    if(favorites.length===0){
+
+        empty.style.display="block";
+        return;
+
+    }
+
+    empty.style.display="none";
+
+    favorites.forEach(function(id){
+
+        let tool=toolData[id];
+
+        if(!tool) return;
+
+        box.innerHTML+=`
+
+        <div class="card"
+             onclick="openTool('${id}','${tool.name}')">
+
+            <div class="icon">${tool.icon}</div>
+
+            <h3>${tool.name}</h3>
+
+            <p>${tool.desc}</p>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   RECENT TOOLS
+========================= */
+
+let recent=
+    JSON.parse(localStorage.getItem("rajRecent")) || [];
+
+
+function addRecent(id){
+
+    recent=recent.filter(
+        item=>item!==id
+    );
+
+    recent.unshift(id);
+
+    recent=recent.slice(0,4);
+
+    localStorage.setItem(
+        "rajRecent",
+        JSON.stringify(recent)
+    );
+
+    renderRecent();
+}
+
+
+function renderRecent(){
+
+    let box=
+        document.getElementById("recentList");
+
+    let empty=
+        document.getElementById("recentEmpty");
+
+    box.innerHTML="";
+
+    if(recent.length===0){
+
+        empty.style.display="block";
+        return;
+
+    }
+
+    empty.style.display="none";
+
+    recent.forEach(function(id){
+
+        let tool=toolData[id];
+
+        if(!tool) return;
+
+        box.innerHTML+=`
+
+        <div class="card"
+             onclick="openTool('${id}','${tool.name}')">
+
+            <div class="icon">${tool.icon}</div>
+
+            <h3>${tool.name}</h3>
+
+            <p>${tool.desc}</p>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   OPEN TOOL
+========================= */
+
+function openTool(id,name){
+
+    document.getElementById("homePage")
+        .style.display="none";
+
+    document.querySelectorAll(".tool-page")
+        .forEach(function(page){
+
+            page.style.display="none";
+
+        });
+
+    document.getElementById(id)
+        .style.display="block";
+
+    addRecent(id);
 
     window.scrollTo(0,0);
 }
@@ -590,74 +1019,154 @@ function openTool(tool){
 
 function goHome(){
 
-    document.getElementById("homePage").style.display="block";
+    document.getElementById("homePage")
+        .style.display="block";
 
-    let pages=document.querySelectorAll(".tool-page");
+    document.querySelectorAll(".tool-page")
+        .forEach(function(page){
 
-    pages.forEach(function(page){
-        page.style.display="none";
-    });
+            page.style.display="none";
+
+        });
 
     window.scrollTo(0,0);
+
+    renderFavorites();
+    renderRecent();
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 function searchTools(){
 
-    let input=document
-        .getElementById("searchInput")
+    let input=
+        document.getElementById("searchInput")
         .value
         .toLowerCase();
 
-    let cards=document.querySelectorAll(".card");
+    document.querySelectorAll(
+        "#toolsList .card"
+    ).forEach(function(card){
 
-    cards.forEach(function(card){
-
-        let name=card
-            .getAttribute("data-name")
+        let name=
+            card.getAttribute("data-name")
             .toLowerCase();
 
-        if(name.includes(input)){
-            card.style.display="block";
-        }else{
-            card.style.display="none";
-        }
+        card.style.display=
+            name.includes(input)
+            ? "block"
+            : "none";
 
     });
+
 }
 
 
-/* CALCULATOR */
+/* =========================
+   THEME
+========================= */
 
-let calcDisplay=document.getElementById("calcDisplay");
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+    let light=
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "rajTheme",
+        light ? "light" : "dark"
+    );
+
+    document.getElementById("themeButton")
+        .innerText=
+        light ? "☀️" : "🌙";
+}
+
+
+function loadTheme(){
+
+    let theme=
+        localStorage.getItem("rajTheme");
+
+    if(theme==="light"){
+
+        document.body.classList.add("light");
+
+        document.getElementById("themeButton")
+            .innerText="☀️";
+
+    }
+
+}
+
+
+/* =========================
+   SHOW FAVORITES
+========================= */
+
+function showFavorites(){
+
+    goHome();
+
+    setTimeout(function(){
+
+        document
+            .getElementById("favoriteList")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    },100);
+
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+let calcDisplay=
+    document.getElementById("calcDisplay");
+
 
 function addCalc(value){
+
     calcDisplay.value+=value;
+
 }
+
 
 function clearCalc(){
+
     calcDisplay.value="";
+
 }
 
+
 function deleteCalc(){
+
     calcDisplay.value=
         calcDisplay.value.slice(0,-1);
+
 }
+
 
 function calculate(){
 
     try{
 
-        let expression=calcDisplay.value;
+        let expression=
+            calcDisplay.value.replace(
+                /%/g,
+                "/100"
+            );
 
-        expression=expression.replace(
-            /%/g,
-            "/100"
-        );
-
-        calcDisplay.value=eval(expression);
+        calcDisplay.value=
+            eval(expression);
 
     }catch(error){
 
@@ -668,50 +1177,70 @@ function calculate(){
 }
 
 
-/* TIME CALCULATOR */
+/* =========================
+   TIME
+========================= */
 
 function calculateTime(){
 
-    let start=document.getElementById("startTime").value;
-    let end=document.getElementById("endTime").value;
+    let start=
+        document.getElementById("startTime")
+        .value;
+
+    let end=
+        document.getElementById("endTime")
+        .value;
 
     if(!start || !end){
 
-        document.getElementById("timeResult").innerText=
+        document.getElementById("timeResult")
+            .innerText=
             "Please select both times.";
 
         return;
+
     }
 
-    let startParts=start.split(":");
-    let endParts=end.split(":");
+    let s=start.split(":");
+    let e=end.split(":");
 
     let startMinutes=
-        Number(startParts[0])*60+
-        Number(startParts[1]);
+        Number(s[0])*60+
+        Number(s[1]);
 
     let endMinutes=
-        Number(endParts[0])*60+
-        Number(endParts[1]);
+        Number(e[0])*60+
+        Number(e[1]);
 
     if(endMinutes<startMinutes){
-        endMinutes+=24*60;
+
+        endMinutes+=1440;
+
     }
 
-    let difference=endMinutes-startMinutes;
+    let diff=
+        endMinutes-startMinutes;
 
-    let hours=Math.floor(difference/60);
-    let minutes=difference%60;
+    let hours=
+        Math.floor(diff/60);
 
-    document.getElementById("timeResult").innerText=
-        hours+" hour(s) "+minutes+" minute(s)";
+    let minutes=
+        diff%60;
+
+    document.getElementById("timeResult")
+        .innerText=
+        hours+" hour(s) "+
+        minutes+" minute(s)";
 
 }
 
 
-/* COUNTER */
+/* =========================
+   COUNTER
+========================= */
 
 let counter=0;
+
 
 function changeCounter(number){
 
@@ -719,7 +1248,9 @@ function changeCounter(number){
 
     document.getElementById("counterValue")
         .innerText=counter;
+
 }
+
 
 function resetCounter(){
 
@@ -727,20 +1258,27 @@ function resetCounter(){
 
     document.getElementById("counterValue")
         .innerText=counter;
+
 }
 
 
-/* RANDOM NUMBER */
+/* =========================
+   RANDOM
+========================= */
 
 function randomNumber(){
 
-    let min=Number(
-        document.getElementById("minNumber").value
-    );
+    let min=
+        Number(
+            document.getElementById("minNumber")
+            .value
+        );
 
-    let max=Number(
-        document.getElementById("maxNumber").value
-    );
+    let max=
+        Number(
+            document.getElementById("maxNumber")
+            .value
+        );
 
     if(
         isNaN(min) ||
@@ -749,9 +1287,11 @@ function randomNumber(){
     ){
 
         document.getElementById("randomResult")
-            .innerText="Enter valid numbers.";
+            .innerText=
+            "Enter valid numbers.";
 
         return;
+
     }
 
     let result=
@@ -761,59 +1301,82 @@ function randomNumber(){
 
     document.getElementById("randomResult")
         .innerText=result;
+
 }
 
 
-/* WORD COUNTER */
+/* =========================
+   WORD COUNTER
+========================= */
 
 function countWords(){
 
     let text=
-        document.getElementById("wordText").value;
+        document.getElementById("wordText")
+        .value;
 
-    let words=text.trim()===""
+    let words=
+        text.trim()===""
         ?0
         :text.trim().split(/\s+/).length;
 
-    let characters=text.length;
-
-    document.getElementById("wordResult").innerHTML=
+    document.getElementById("wordResult")
+        .innerHTML=
         "Words: "+words+
-        "<br>Characters: "+characters;
+        "<br>Characters: "+text.length;
+
 }
 
 
-/* COPY TEXT */
+/* =========================
+   COPY
+========================= */
 
 function copyText(){
 
     let text=
-        document.getElementById("copyText").value;
+        document.getElementById("copyText")
+        .value;
 
     if(text.trim()===""){
 
         document.getElementById("copyResult")
-            .innerText="Nothing to copy.";
+            .innerText=
+            "Nothing to copy.";
 
         return;
+
     }
 
     navigator.clipboard.writeText(text)
         .then(function(){
 
             document.getElementById("copyResult")
-                .innerText="✅ Text copied!";
+                .innerText=
+                "✅ Text copied!";
 
         })
         .catch(function(){
 
             document.getElementById("copyResult")
-                .innerText="Copy failed.";
+                .innerText=
+                "Copy failed.";
 
         });
+
 }
+
+
+/* =========================
+   START
+========================= */
+
+loadTheme();
+updateStars();
+renderFavorites();
+renderRecent();
 
 </script>
 
 </body>
-</html>
+                </html>
