@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raj Tools Pro</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0b0f14;
+color:#fff;
+padding-bottom:80px;
+transition:.3s;
+}
+
+body.light{
+background:#f2f4f7;
+color:#111;
+}
+
+header{
+background:#151b23;
+padding:20px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:20;
+box-shadow:0 3px 15px #0005;
+}
+
+body.light header{
+background:#fff;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00e5ff;
+}
+
+.subtitle{
+color:#999;
+margin-top:5px;
+}
+
+.page{
+display:none;
+max-width:1000px;
+margin:auto;
+padding:25px 18px;
+}
+
+.page.active{
+display:block;
+}
+
+.search{
+width:100%;
+padding:15px;
+border:0;
+border-radius:12px;
+font-size:16px;
+margin:15px 0 25px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:25px;
+}
+
+.stat{
+background:#151b23;
+padding:18px;
+border-radius:15px;
+text-align:center;
+}
+
+body.light .stat,
+body.light .card{
+background:#fff;
+box-shadow:0 4px 15px #0001;
+}
+
+.stat b{
+display:block;
+font-size:25px;
+color:#00e5ff;
+margin-bottom:5px;
+}
+
+.tools{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.card{
+background:#151b23;
+padding:22px;
+border-radius:18px;
+box-shadow:0 4px 18px #0005;
+}
+
+.card h2{
+color:#00e5ff;
+margin-top:0;
+}
+
+input,textarea,select{
+width:100%;
+padding:13px;
+border:1px solid #444;
+border-radius:10px;
+margin:6px 0;
+font-size:16px;
+background:#fff;
+color:#111;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
+}
+
+button{
+border:0;
+padding:12px 18px;
+border-radius:10px;
+background:#00e5ff;
+color:#001014;
+font-weight:bold;
+cursor:pointer;
+margin:4px;
+}
+
+button:hover{
+opacity:.85;
+}
+
+.result{
+font-size:20px;
+font-weight:bold;
+margin-top:12px;
+word-break:break-word;
+}
+
+.full{
+width:100%;
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:72px;
+background:#151b23;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:30;
+box-shadow:0 -3px 15px #0007;
+}
+
+body.light .bottom{
+background:#fff;
+}
+
+.bottom button{
+background:transparent;
+color:#fff;
+font-size:12px;
+margin:0;
+}
+
+body.light .bottom button{
+color:#111;
+}
+
+.bottom span{
+display:block;
+font-size:22px;
+margin-bottom:3px;
+}
+
+.hero{
+text-align:center;
+padding:20px 5px 10px;
+}
+
+.hero h1{
+font-size:40px;
+margin:10px 0;
+color:#00e5ff;
+}
+
+.hero p{
+color:#aaa;
+}
+
+.hide{
+display:none!important;
+}
+
+@media(max-width:600px){
+.stats{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.tools{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🚀 Raj Tools Pro</div>
+<div class="subtitle">Your personal web toolbox</div>
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<h1>Welcome Raj 👋</h1>
+
+<p>Useful tools, simple and fast.</p>
+
+</div>
+
+<input
+id="search"
+class="search"
+placeholder="🔍 Search a tool..."
+oninput="searchTools()"
+>
+
+<div class="stats">
+
+<div class="stat">
+<b id="toolCount">7</b>
+Tools
+</div>
+
+<div class="stat">
+<b id="visitCount">1</b>
+Visits
+</div>
+
+<div class="stat">
+<b id="counterStat">0</b>
+Counter
+</div>
+
+</div>
+
+
+<div class="tools">
+
+
+<div class="card tool">
+
+<h2>🧮 Calculator</h2>
+
+<input id="num1" type="number" placeholder="First number">
+
+<input id="num2" type="number" placeholder="Second number">
+
+<button onclick="calculate('+')">+</button>
+<button onclick="calculate('-')">−</button>
+<button onclick="calculate('*')">×</button>
+<button onclick="calculate('/')">÷</button>
+
+<div id="calcResult" class="result">
+Result: —
+</div>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>⏱️ Time Calculator</h2>
+
+<input id="startTime" type="time">
+
+<input id="endTime" type="time">
+
+<button onclick="timeCalc()">
+Calculate
+</button>
+
+<div id="timeResult" class="result">—</div>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>🔢 Counter</h2>
+
+<div id="counterValue" class="result">0</div>
+
+<button onclick="counterChange(1)">+1</button>
+<button onclick="counterChange(-1)">−1</button>
+<button onclick="counterReset()">Reset</button>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>🎲 Random Number</h2>
+
+<input id="minRandom" type="number" placeholder="Minimum">
+
+<input id="maxRandom" type="number" placeholder="Maximum">
+
+<button onclick="randomNumber()">
+Generate
+</button>
+
+<div id="randomResult" class="result">—</div>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>📝 Text Tool</h2>
+
+<textarea id="textBox" placeholder="Write your text here..."></textarea>
+
+<button onclick="copyText()">
+📋 Copy
+</button>
+
+<button onclick="clearText()">
+Clear
+</button>
+
+<div id="textResult" class="result"></div>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>🔤 Word Counter</h2>
+
+<textarea id="wordText"
+placeholder="Write something..."
+oninput="countWords()"></textarea>
+
+<div id="wordResult" class="result">
+Words: 0 | Characters: 0
+</div>
+
+</div>
+
+
+<div class="card tool">
+
+<h2>🔔 Quick Message</h2>
+
+<p>Test your JavaScript button.</p>
+
+<button onclick="showMessage()">
+Click Me
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="page">
+
+<div class="card">
+
+<h2>👨‍💻 About Raj Tools</h2>
+
+<p>
+Raj Tools Pro is a browser-based mini toolbox
+created with HTML, CSS and JavaScript.
+</p>
+
+<p>
+Everything runs directly inside the browser.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+<div class="card">
+
+<h2>⚙️ Settings</h2>
+
+<button class="full" onclick="toggleTheme()">
+🌙 Change Dark / Light Mode
+</button>
+
+<button class="full" onclick="resetAll()">
+🗑️ Reset All Saved Data
+</button>
+
+</div>
+
+</section>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom">
+
+<button onclick="openPage('home')">
+<span>🏠</span>
+Home
+</button>
+
+<button onclick="openPage('about')">
+<span>👨‍💻</span>
+About
+</button>
+
+<button onclick="openPage('settings')">
+<span>⚙️</span>
+Settings
+</button>
+
+</div>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function openPage(page){
+
+document.querySelectorAll(".page")
+.forEach(function(p){
+p.classList.remove("active");
+});
+
+document.getElementById(page)
+.classList.add("active");
+
+window.scrollTo(0,0);
+
+}
+
+
+/* SEARCH */
+
+function searchTools(){
+
+let query=
+document.getElementById("search")
+.value
+.toLowerCase();
+
+document.querySelectorAll(".tool")
+.forEach(function(tool){
+
+let text=
+tool.innerText.toLowerCase();
+
+if(text.includes(query)){
+tool.classList.remove("hide");
+}else{
+tool.classList.add("hide");
+}
+
+});
+
+}
+
+
+/* CALCULATOR */
+
+function calculate(op){
+
+let a=
+Number(document.getElementById("num1").value);
+
+let b=
+Number(document.getElementById("num2").value);
+
+let result;
+
+if(op==="+") result=a+b;
+
+if(op==="-") result=a-b;
+
+if(op==="*") result=a*b;
+
+if(op==="/"){
+
+if(b===0){
+result="Cannot divide by zero";
+}else{
+result=a/b;
+}
+
+}
+
+document.getElementById("calcResult")
+.innerText="Result: "+result;
+
+}
+
+
+/* TIME CALCULATOR */
+
+function timeCalc(){
+
+let start=
+document.getElementById("startTime").value;
+
+let end=
+document.getElementById("endTime").value;
+
+if(!start || !end){
+
+document.getElementById("timeResult")
+.innerText="Select both times.";
+
+return;
+
+}
+
+let s=start.split(":");
+let e=end.split(":");
+
+let startMin=
+Number(s[0])*60+Number(s[1]);
+
+let endMin=
+Number(e[0])*60+Number(e[1]);
+
+if(endMin<startMin){
+endMin+=1440;
+}
+
+let diff=endMin-startMin;
+
+let hours=Math.floor(diff/60);
+let minutes=diff%60;
+
+document.getElementById("timeResult")
+.innerText=
+hours+" hour(s) "+minutes+" minute(s)";
+
+}
+
+
+/* COUNTER */
+
+let counter=
+Number(localStorage.getItem("rajCounter")) || 0;
+
+function updateCounter(){
+
+document.getElementById("counterValue")
+.innerText=counter;
+
+document.getElementById("counterStat")
+.innerText=counter;
+
+localStorage.setItem("rajCounter",counter);
+
+}
+
+function counterChange(value){
+
+counter+=value;
+
+updateCounter();
+
+}
+
+function counterReset(){
+
+counter=0;
+
+updateCounter();
+
+}
+
+updateCounter();
+
+
+/* RANDOM NUMBER */
+
+function randomNumber(){
+
+let min=
+Number(document.getElementById("minRandom").value);
+
+let max=
+Number(document.getElementById("maxRandom").value);
+
+if(!min && min!==0) min=1;
+
+if(!max && max!==0) max=100;
+
+if(min>max){
+
+let temp=min;
+min=max;
+max=temp;
+
+}
+
+let result=
+Math.floor(Math.random()*(max-min+1))+min;
+
+document.getElementById("randomResult")
+.innerText=result;
+
+}
+
+
+/* COPY TEXT */
+
+function copyText(){
+
+let text=
+document.getElementById("textBox").value;
+
+if(!text){
+
+document.getElementById("textResult")
+.innerText="Write something first.";
+
+return;
+
+}
+
+navigator.clipboard.writeText(text)
+.then(function(){
+
+document.getElementById("textResult")
+.innerText="Copied successfully ✅";
+
+})
+.catch(function(){
+
+document.getElementById("textResult")
+.innerText="Copy not supported here.";
+
+});
+
+}
+
+
+function clearText(){
+
+document.getElementById("textBox")
+.value="";
+
+document.getElementById("textResult")
+.innerText="";
+
+}
+
+
+/* WORD COUNTER */
+
+function countWords(){
+
+let text=
+document.getElementById("wordText").value;
+
+let characters=text.length;
+
+let words=
+text.trim()
+? text.trim().split(/\s+/).length
+:0;
+
+document.getElementById("wordResult")
+.innerText=
+"Words: "+words+
+" | Characters: "+characters;
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(){
+
+alert("Welcome to Raj Tools Pro 🚀");
+
+}
+
+
+/* THEME */
+
+function toggleTheme(){
+
+document.body.classList.toggle("light");
+
+let light=
+document.body.classList.contains("light");
+
+localStorage.setItem("rajTheme",light);
+
+}
+
+
+/* VISITS */
+
+let visits=
+Number(localStorage.getItem("rajVisits")) || 0;
+
+visits++;
+
+localStorage.setItem("rajVisits",visits);
+
+document.getElementById("visitCount")
+.innerText=visits;
+
+
+/* RESET */
+
+function resetAll(){
+
+localStorage.clear();
+
+counter=0;
+
+updateCounter();
+
+document.getElementById("visitCount")
+.innerText=1;
+
+alert("All saved data has been reset.");
+
+}
+
+
+/* LOAD THEME */
+
+if(localStorage.getItem("rajTheme")==="true"){
+
+document.body.classList.add("light");
+
+}
+
+</script>
+
+</body>
+  </html>
