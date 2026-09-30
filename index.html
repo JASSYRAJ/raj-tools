@@ -426,7 +426,7 @@ textarea{min-height:140px;resize:vertical}
 <div class="bottom">
 <button class="nav active" onclick="home()"><div>🏠</div>Home</button>
 <button class="nav" onclick="home()"><div>🧰</div>Tools</button>
-<button class="nav" onclick="topPage()"><div>⭐</div>More</button>
+<button class="nav" onclick="showMore()">⭐ More</button>
 </div>
 
 
@@ -724,5 +724,17 @@ if ("serviceWorker" in navigator) {
         .catch(error => console.log("Service Worker Error:", error));
 }
 </script>
-</body>
+<script>
+function showMore() {
+    alert(
+        "🚀 Raj Tools Pro\n\n" +
+        "🔐 Password Generator\n" +
+        "🔄 Unit Converter\n" +
+        "📅 Age Calculator\n" +
+        "💰 EMI Calculator\n" +
+        "📱 QR Code Generator\n\n" +
+        "More tools coming soon!"
+    );
+}
+</script></body>
     </html>
