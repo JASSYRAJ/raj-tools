@@ -668,6 +668,53 @@ function decodeURL(){
  catch(x){alert("Invalid encoded text")}
 }
 
+</script><script>
+let deferredPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Install button create
+    const installBtn = document.createElement("button");
+    installBtn.id = "installAppBtn";
+    installBtn.innerHTML = "📲 Install Raj Tools";
+    
+    installBtn.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        padding: 14px 22px;
+        border: none;
+        border-radius: 30px;
+        background: #00d9ff;
+        color: #071014;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    `;
+
+    document.body.appendChild(installBtn);
+
+    installBtn.onclick = async () => {
+        deferredPrompt.prompt();
+
+        const result = await deferredPrompt.userChoice;
+
+        if (result.outcome === "accepted") {
+            console.log("Raj Tools installed");
+        }
+
+        deferredPrompt = null;
+        installBtn.remove();
+    };
+});
+
+window.addEventListener("appinstalled", () => {
+    console.log("Raj Tools PWA installed successfully");
+});
 </script>
 <script>
 if ("serviceWorker" in navigator) {
