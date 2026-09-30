@@ -725,16 +725,40 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <script>
+<script>
 function showMore() {
-    alert(
-        "🚀 Raj Tools Pro\n\n" +
-        "🔐 Password Generator\n" +
-        "🔄 Unit Converter\n" +
-        "📅 Age Calculator\n" +
-        "💰 EMI Calculator\n" +
-        "📱 QR Code Generator\n\n" +
-        "More tools coming soon!"
+    const password = generatePassword(16);
+
+    const choice = confirm(
+        "🔐 PASSWORD GENERATOR\n\n" +
+        "Generated Password:\n\n" +
+        password +
+        "\n\nOK = नया Password\nCancel = बंद"
     );
+
+    if (choice) {
+        showMore();
+    }
 }
-</script></body>
+
+function generatePassword(length) {
+    const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "abcdefghijklmnopqrstuvwxyz" +
+        "0123456789" +
+        "!@#$%^&*";
+
+    let password = "";
+
+    for (let i = 0; i < length; i++) {
+        password += chars.charAt(
+            Math.floor(Math.random() * chars.length)
+        );
+    }
+
+    return password;
+}
+</script>
+</body>
+</html></script></body>
     </html>
